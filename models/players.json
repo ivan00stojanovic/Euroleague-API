@@ -2,7 +2,7 @@
    "nemanjaNedovic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -10,7 +10,7 @@
      "facundoCampazzo": {
     "name": "Facundo Campazzo",
     "team": "Crvena Zvezda",
-    "position": "PG",
+    "position": ["PG"],
     "height": 181,
     "age": 32,
     "jerseyNumber": 7
@@ -18,14 +18,14 @@
      "lucaVildoza": {
     "name": "Luca Vildoza",
     "team": "Crvena Zvezda",
-    "position": "PG",
+    "position": ["PG"],
     "height": 191,
     "age": 27,
     "jerseyNumber": 1
     }, "lukaMitrovic": {
     "name": "Luka Mitrovic",
     "team": "Crvena Zvezda",
-    "position": "PF/C",
+    "position": ["PF/C"],
     "height": 206,
     "age": 30,
     "jerseyNumber": 9
@@ -33,7 +33,7 @@
      "filipPetrusev": {
     "name": "Filip Petrusev",
     "team": "Crvena Zvezda",
-    "position": "C",
+    "position": ["C"],
     "height": 211,
     "age": 23,
     "jerseyNumber": 33
@@ -41,7 +41,7 @@
      "ognjenDobric": {
     "name": "Ognjen Dobric",
     "team": "Crvena Zvezda",
-    "position": "SF",
+    "position": ["SF"],
     "height": 200,
     "age": 28,
     "jerseyNumber": 13
@@ -49,7 +49,7 @@
      "brankoLazic": {
     "name": "Branko Lazic",
     "team": "Crvena Zvezda",
-    "position": "PG",
+    "position": ["PG"],
     "height": 195,
     "age": 34,
     "jerseyNumber": 10
@@ -57,7 +57,7 @@
      "stefanMarkovic": {
     "name": "Stefan Markovic",
     "team": "Crvena Zvezda",
-    "position": "PG/SG",
+    "position": ["PG/SG"],
     "height": 198,
     "age": 35,
     "jerseyNumber": 27
@@ -65,7 +65,7 @@
      "benBentil": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -73,7 +73,7 @@
     "hassanMartin": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -81,7 +81,7 @@
     "johnHolland": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -89,7 +89,7 @@
     "jaylenAdams": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -97,7 +97,7 @@
     "nikolaIvanovic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -105,7 +105,7 @@
     "daliborIlic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -113,7 +113,7 @@
     "ognjenKuzmic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -121,7 +121,7 @@
     "stefanLazarevic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -129,7 +129,7 @@
     "miroslavRaduljica": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
@@ -137,7 +137,7 @@
     "nikolaTopic": {
     "name": "Nemanja Nedovic",
     "team": "Crvena Zvezda",
-    "position": "SG",
+    "position": ["SG"],
     "height": 192,
     "age": 32,
     "jerseyNumber": 26
