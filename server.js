@@ -1,69 +1,78 @@
-const express = require('express')
-const app = express()
-const dotenv = require('dotenv')
-const connectDB = require('./config/db')
-const cors = require('cors')
-const Player = require('./models/playerModel')
-const playersData = require('./models/playersData')
-// const userInput = document.getElementById('userInput')
-// const bodyParser = require('body-parser')
-// PORT = 1991
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const cors = require('cors');
+const Player = require('./models/playerModel');
+const playersData = require('./models/playersData');
+const path = require('path');
 
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(express.json());
+
 // Load config
-dotenv.config({path: './config/config.env'})
+dotenv.config({ path: './config/config.env' });
 
-//Handle CORS error
-app.use(cors())
+// Handle CORS error
+app.use(cors());
 
-connectDB()
+connectDB();
 
 const pushPlayers = async () => {
-    try {
-        for(let igrach of playersData){
-        //check if existing player already exists
-        const existingPlayer = await Player.findOne({ name: igrach.name });
+  try {
+    for (let igrach of playersData) {
+      // Check if existing player already exists
+      const existingPlayer = await Player.findOne({ name: igrach.name });
       if (existingPlayer) {
         // console.log(`Player '${igrach.name}' already exists. Skipping.`);
-        continue;``
-      } 
-            const player = await Player.create(igrach);
-            console.log(`Created player: ${player.name}`)
-        }
-    } catch (error) {
-        console.error(error)
+        continue;
+      }
+      const player = await Player.create(igrach);
+      console.log(`Created player: ${player.name}`);
     }
-}
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-pushPlayers()
+//pushPlayers()
 
+// app.get('/playersData.js', (req, res) => {
+//   try {
+//     res.sendFile(path.join(__dirname, 'models', 'playersData.js'));
+//   } catch (error) {
+//     console.error('Error serving playersData.js:', error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 
-// app.use(express.static('public'))
-app.use(express.json())
+app.get('/getInfo', (req, res) => {
+    try {
+      res.send(playersData);
+    } catch (error) {
+      console.error('Error sending player data:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
 
-// app.get('/', (req,res) => {
-//     res.sendFile(__dirname + '/public/index.html')
-// })
-// app.get('/test', async (req,res) => {
-//     res.sendFile(__dirname + '/views/index.html')
-//     const proba =   await Math.floor(Math.random() * playersData.length)
-// })
+  app.get('/players/:playerName', (req, res) => {
+      try {
+          const playerName = req.params.playerName.toLowerCase();
+          const player = playersData.find(player => player.name.toLowerCase() === playerName);
+          if (player) {
+              res.json(player);
+      } else {
+        res.status(404).json({ error: 'Player not found' });
+      }
+    } catch (error) {
+      console.error('Error retrieving player:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
 
-
-
-// app.post('/player', async (req,res) => {
-//         try {
-//              const player = await Player.create(req.body)
-//              res.status(200).json(player)
-//         } catch (error) {
-//             console.error(error)
-//             res.status(500).json({message: error.message})
-//         }
-// })
-
-const PORT = process.env.PORT || 1991
-
+const PORT = process.env.PORT || 1991;
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});
