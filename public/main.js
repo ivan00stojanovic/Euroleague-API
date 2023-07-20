@@ -10,13 +10,15 @@ input.addEventListener("keypress", e => {
     e.preventDefault();
     // fetchPlayers()
     input.value = '';
+    loadData(kkczv,playersListElement)
+    fetchPlayers()
   }
 });
 
 const checkInput = (inputed, playerOTD) =>{
     // if(input.value === comparision) console.log('svakacast') 
     console.log(inputed, playerOTD)
-    if(inputed === playerOTD) console.log('sagggg')
+    if(inputed === playerOTD) console.log('Inputs match')
 }
 
 
@@ -24,14 +26,13 @@ const fetchPlayers = async () => {
     const inputedPlayer = input.value.toLowerCase()
     const response = await fetch('http://localhost:1991/getInfo')
     const data = await response.json()
-    console.log(data)
-    // console.log(data[0].name.toLowerCase())
-    checkInput(inputedPlayer, data[0].name.split(' ')[0].toLowerCase())
-     kkczv = data.map(players => players.name)
-     loadData(kkczv, playersListElement)
-     console.log(kkczv) 
+    kkczv = data.map(players => players.name)
+    loadData(kkczv, playersListElement)
+    checkInput(inputedPlayer, kkczv[0])
      const randomOne =  data[Math.floor(Math.random() * data.length)]
 }
+
+
 
 fetchPlayers()
 
@@ -48,12 +49,12 @@ const loadData = (data, element) => {
 }
 
 const filterData = (data, searchText) => {
- return  data.filter(player => player.includes(searchText));
+ return  data.filter(player => player.toLowerCase().includes(searchText.toLowerCase()));
 }
 
 input.addEventListener('input', () => {
-  const filteredData = filterData(kkczv, playersListElement.value)
-  loadData(filteredData, input)
+  const filteredData = filterData(kkczv, input.value)
+  loadData(filteredData, playersListElement)
 })
 
 
