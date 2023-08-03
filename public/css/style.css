@@ -29,6 +29,14 @@ body{
     font-weight: bold;
 }
 
+#players-list {
+    display: none;
+  }
+
+  #players-list li.selected {
+    background-color: orange;
+  }
+
 .autocomplete-list{
     list-style-type: none;
     margin: 0;

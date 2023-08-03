@@ -2,16 +2,18 @@ const input = document.getElementById('player-input');
 const playersListElement = document.getElementById('players-list');
 let kkczv = [];
 let randomOne = null;
+let selectedOptionIndex = -1;
 
 const fetchPlayers = async () => {
-  const inputedPlayer = input.value.toLowerCase();
   const response = await fetch('http://localhost:1991/getInfo');
   const data = await response.json();
   kkczv = data.map((players) => players.name);
-  loadData(kkczv, playersListElement);
   randomOne = data[Math.floor(Math.random() * data.length)];
   console.log(randomOne.name)
+  loadData(kkczv, playersListElement);
 };
+
+
 
 const loadData = (data, element) => {
   if (data) {
@@ -29,17 +31,53 @@ const filterData = (data, searchText) => {
 };
 
 input.addEventListener('input', () => {
-  const filteredData = filterData(kkczv, input.value);
-  loadData(filteredData, playersListElement);
-});
-
-input.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    console.log('Enter key pressed! Input value:', input.value);
-    compareInput(input.value.toLowerCase(), randomOne.name.toLowerCase());
-    input.value = ''
+  const searchText = input.value.trim();
+  if (searchText.length === 0) {
+    playersListElement.style.display = 'none'; // Hide autocomplete list
+  } else {
+    const filteredData = filterData(kkczv, searchText);
+    loadData(filteredData, playersListElement);
+    playersListElement.style.display = 'block'; // Show autocomplete list
   }
 });
+
+input.addEventListener('keydown', (event) => {
+  const searchText = input.value.trim();
+  const options = playersListElement.querySelectorAll('li');
+
+  if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    if (selectedOptionIndex < options.length - 1) {
+      selectedOptionIndex += 1;
+    }
+    highlightSelectedOption(options);
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    if (selectedOptionIndex > 0) {
+      selectedOptionIndex -= 1;
+    }
+    highlightSelectedOption(options);
+  } else if (event.key === 'Enter') {
+    event.preventDefault();
+    if (selectedOptionIndex !== -1) {
+      input.value = options[selectedOptionIndex].textContent;
+      selectedOptionIndex = -1;
+      playersListElement.style.display = 'none';
+      compareInput(input.value.toLowerCase(), randomOne.name.toLowerCase());
+      input.value = ''
+    }
+  }
+});
+
+const highlightSelectedOption = (options) => {
+  options.forEach((option, index) => {
+    if (index === selectedOptionIndex) {
+      option.classList.add('selected');
+    } else {
+      option.classList.remove('selected');
+    }
+  });
+};
 
 const compareInput = (inputed, randomPlayerName) => {
   if (inputed === randomPlayerName) {
@@ -48,6 +86,8 @@ const compareInput = (inputed, randomPlayerName) => {
     console.log('Inputs do not match. Keep trying!');
   }
 };
+
+
 
 // Fetch players when the page loads
 fetchPlayers();
