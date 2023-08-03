@@ -44,30 +44,46 @@ input.addEventListener('input', () => {
 input.addEventListener('keydown', (event) => {
   const searchText = input.value.trim();
   const options = playersListElement.querySelectorAll('li');
+  const visibleOptions = Array.from(options).slice(0, 4);
 
   if (event.key === 'ArrowDown') {
     event.preventDefault();
-    if (selectedOptionIndex < options.length - 1) {
+    if (selectedOptionIndex < visibleOptions.length - 1) {
       selectedOptionIndex += 1;
+    } else {
+      selectedOptionIndex = 0; // Loop back to the first option
     }
-    highlightSelectedOption(options);
+    highlightSelectedOption(visibleOptions);
   } else if (event.key === 'ArrowUp') {
     event.preventDefault();
     if (selectedOptionIndex > 0) {
       selectedOptionIndex -= 1;
+    } else {
+      selectedOptionIndex = visibleOptions.length - 1; // Loop back to the last option
     }
-    highlightSelectedOption(options);
+    highlightSelectedOption(visibleOptions);
   } else if (event.key === 'Enter') {
     event.preventDefault();
     if (selectedOptionIndex !== -1) {
-      input.value = options[selectedOptionIndex].textContent;
+      input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
       compareInput(input.value.toLowerCase(), randomOne.name.toLowerCase());
-      input.value = ''
+      input.value = '';
     }
   }
 });
+
+// Reset selectedOptionIndex to 0 after each keydown event
+input.addEventListener('input', () => {
+  selectedOptionIndex = -1;
+});
+
+
+
+
+
+
 
 const highlightSelectedOption = (options) => {
   options.forEach((option, index) => {
