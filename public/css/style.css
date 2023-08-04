@@ -22,11 +22,12 @@ body{
     border-radius: 5px;
     color: orange;
     font-size: 18px;
+    font-weight: 700;
 }
 
 .autocomplete-input::placeholder{
     color: orange;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 #players-list {

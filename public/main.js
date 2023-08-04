@@ -1,18 +1,25 @@
 const input = document.getElementById('player-input');
 const playersListElement = document.getElementById('players-list');
 let kkczv = [];
-let randomOne = null;
+// let randomOne = null;
+let playerOTD = null;
 let selectedOptionIndex = -1;
+let counter = 1
 
 const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/getInfo');
   const data = await response.json();
   kkczv = data.map((players) => players.name);
-  randomOne = data[Math.floor(Math.random() * data.length)];
-  console.log(randomOne.name)
+  // randomOne = data[Math.floor(Math.random() * data.length)];
+  // console.log(randomOne)
+  playerOTD = getPlayerOTD(data)
+  console.log(playerOTD)
   loadData(kkczv, playersListElement);
 };
 
+const getPlayerOTD = (data) => {
+  return data[Math.floor(Math.random() * data.length)]
+}
 
 
 const loadData = (data, element) => {
@@ -27,8 +34,8 @@ const loadData = (data, element) => {
 };
 
 const filterData = (data, searchText) => {
-  return data.filter((player) => player.toLowerCase().includes(searchText.toLowerCase()));
-};
+  return  data.filter(player => typeof player === 'string' && player.toLowerCase().includes(searchText.toLowerCase()));
+ }
 
 input.addEventListener('input', () => {
   const searchText = input.value.trim();
@@ -68,8 +75,10 @@ input.addEventListener('keydown', (event) => {
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
-      compareInput(input.value.toLowerCase(), randomOne.name.toLowerCase());
+      compareInput(input.value.toLowerCase(), playerOTD.name.toLowerCase());
       input.value = '';
+      counter++
+      console.log(counter)
     }
   }
 });
