@@ -6,12 +6,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     color: black;
 }
 
 .container{
-    width: 500px;
+    width: 35rem;
     position: relative;
     /* border: 2px solid red; */
 }
@@ -27,7 +28,6 @@ body{
 
 .autocomplete-input::placeholder{
     color: orange;
-    font-weight: 500;
 }
 
 #players-list {
@@ -52,4 +52,17 @@ body{
     padding: 15px;
     width: calc(100% - 30px);
     cursor: pointer;
+}
+
+.answers-container{
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* position: relative; */
+    padding-bottom: 30px;
+    /* background-color: blue; */
+}
+
+.option-one {
+    margin: 1rem;
 }

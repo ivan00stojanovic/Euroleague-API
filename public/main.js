@@ -5,6 +5,7 @@ let kkczv = [];
 let playerOTD = null;
 let selectedOptionIndex = -1;
 let counter = 1
+const optionOne = document.querySelector('.option-one')
 
 const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/getInfo');
@@ -79,6 +80,8 @@ input.addEventListener('keydown', (event) => {
       input.value = '';
       counter++
       console.log(counter)
+      input.placeholder =  `Guess ${counter} of 6 `
+      // optionOne.innerHTML = `<p>Vajdu mi karu</p>`
     }
   }
 });
