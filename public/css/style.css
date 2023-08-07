@@ -54,15 +54,38 @@ body{
     cursor: pointer;
 }
 
-.answers-container{
+/* .answers-container{
     height: 300px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    /* position: relative; */
-    padding-bottom: 30px;
-    /* background-color: blue; */
+    /* overflow-x: hidden;
+    overflow-y: scroll; */
+    /* padding-bottom: 30px; 
+{ */
+
+.answers-container  table {
+    outline: 2px solid red;
+    /* width: 50rem; */
 }
 
-.option-one {
-    margin: 1rem;
+.answers-container td{
+    outline: 2px solid blue;
 }
+
+.answers-container  td:nth-child(1){
+    outline: 2px solid greenyellow;
+    width: 15rem;  
+    height: 8rem;
+}
+
+.answers-container  td:not(:nth-child(1)){
+    outline: 2px solid pink;
+    width: 5rem;
+    height: 8rem;
+    padding-left: 1.8rem;
+}
+
+.answers-container  td:nth-child(2){
+    outline: 2px solid blue;
+    padding-left: 0.8rem;
+    
+}
+
