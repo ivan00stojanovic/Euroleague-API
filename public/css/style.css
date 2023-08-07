@@ -18,12 +18,13 @@ body{
 }
 
 .autocomplete-input{
-    padding: 15px 15px;
+    padding: 1rem;
     width: calc(100% - 30px);
     border-radius: 5px;
     color: orange;
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: 2rem;
 }
 
 .autocomplete-input::placeholder{
@@ -53,39 +54,51 @@ body{
     width: calc(100% - 30px);
     cursor: pointer;
 }
-
-/* .answers-container{
-    height: 300px;
-    /* overflow-x: hidden;
-    overflow-y: scroll; */
-    /* padding-bottom: 30px; 
-{ */
-
-.answers-container  table {
-    outline: 2px solid red;
-    /* width: 50rem; */
-}
-
-.answers-container td{
-    outline: 2px solid blue;
-}
-
-.answers-container  td:nth-child(1){
-    outline: 2px solid greenyellow;
-    width: 15rem;  
-    height: 8rem;
-}
-
-.answers-container  td:not(:nth-child(1)){
-    outline: 2px solid pink;
-    width: 5rem;
-    height: 8rem;
-    padding-left: 1.8rem;
-}
-
-.answers-container  td:nth-child(2){
-    outline: 2px solid blue;
-    padding-left: 0.8rem;
     
-}
+    .answers-container {
+        /* width: 100%; */
+        border-collapse: collapse; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .answers-container td {
+        outline: 1px solid #f1f3ef;
+        padding: 1.5rem;
+        text-align: left;
+        width: 5rem;
+        background-color: lightblue;
+        
+    }
 
+    .answers-container td:nth-child(even){
+        outline: 1px solid #f1f3ef;
+        padding: 1.5rem;
+        text-align: left;
+        width: 5rem;
+        background-color: pink;
+        display: table-cell;
+        vertical-align: middle;
+        
+    }
+
+    .answers-container th{
+        outline: 1px solid orange;
+        padding: 1.4rem;
+        text-align: left;
+        
+    }
+    
+    .answers-container tr {
+        background-color: #f1f3ef;
+    }
+    
+    .answers-container th {
+        background-color: orange;
+        color: black;
+    }
+    
+    /* Rest of your styling */
+    
