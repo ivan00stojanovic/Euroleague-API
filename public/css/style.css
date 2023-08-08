@@ -55,47 +55,48 @@ body{
     cursor: pointer;
 }
     
-    .answers-container {
+    table {
         /* width: 100%; */
         border-collapse: collapse; 
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 50rem;
     }
     
-    .answers-container td {
+    table td {
         outline: 1px solid #f1f3ef;
-        padding: 1.5rem;
+        padding: 1.8rem;
         text-align: left;
-        width: 5rem;
+        width: 4rem;
         background-color: lightblue;
         
     }
 
-    .answers-container td:nth-child(even){
+    table td:nth-child(even){
         outline: 1px solid #f1f3ef;
         padding: 1.5rem;
         text-align: left;
-        width: 5rem;
+        width: 4rem;
         background-color: pink;
         display: table-cell;
         vertical-align: middle;
         
     }
 
-    .answers-container th{
+    table th{
         outline: 1px solid orange;
         padding: 1.4rem;
         text-align: left;
         
     }
     
-    .answers-container tr {
+    table tr {
         background-color: #f1f3ef;
     }
     
-    .answers-container th {
+    table th {
         background-color: orange;
         color: black;
     }

@@ -5,7 +5,13 @@ let kkczv = [];
 let playerOTD = null;
 let selectedOptionIndex = -1;
 let counter = 1
-const optionOne = document.querySelector('.option-one')
+const answer2 = document.querySelector('.answer-2')
+const answer3 = document.querySelector('.answer-3')
+const answer4 = document.querySelector('.answer-4')
+const allAnswers = [answer2,answer3,answer4]
+const instructions = document.querySelector('.instructions')
+
+
 
 const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/getInfo');
@@ -62,6 +68,7 @@ input.addEventListener('keydown', (event) => {
       selectedOptionIndex = 0; // Loop back to the first option
     }
     highlightSelectedOption(visibleOptions);
+    input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'ArrowUp') {
     event.preventDefault();
     if (selectedOptionIndex > 0) {
@@ -70,8 +77,10 @@ input.addEventListener('keydown', (event) => {
       selectedOptionIndex = visibleOptions.length - 1; // Loop back to the last option
     }
     highlightSelectedOption(visibleOptions);
+    input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
     event.preventDefault();
+    instructions.removeAttribute('id', 'player-list')
     if (selectedOptionIndex !== -1) {
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
@@ -80,9 +89,19 @@ input.addEventListener('keydown', (event) => {
       input.value = '';
       counter++
       console.log(counter)
-      input.placeholder =  `Guess ${counter} of 6 `
-      // optionOne.innerHTML = `<p>Vajdu mi karu</p>`
+      input.placeholder =  `Guess ${counter} of 6`
+      allAnswers[0].innerHTML = ` <tr>
+      <td>Giannis ANtenokuntmpo</td>
+      <td>
+          <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
+          alt="red star"></td>
+      <td>SG</td>
+      <td>192</td>
+      <td>32</td>
+      <td>26</td>
+  </tr>`
     }
+        if(counter === 3) answer2.setAttribute('id', 'players-list')
   }
 });
 
