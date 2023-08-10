@@ -31,13 +31,10 @@ body{
     color: orange;
 }
 
-#players-list {
-    display: none;
-  }
 
-  #players-list li.selected {
+#players-list li.selected {
     background-color: orange;
-  }
+}
 
 .autocomplete-list{
     list-style-type: none;
@@ -54,41 +51,49 @@ body{
     width: calc(100% - 30px);
     cursor: pointer;
 }
-    
-    table {
-        /* width: 100%; */
+
+#players-list {
+    display: none;
+  }
+
+  .table-container {
+    max-height: 300px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+table {
+        width: 100%;
         border-collapse: collapse; 
         /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50rem;
     }
     
     table td {
         outline: 1px solid #f1f3ef;
-        padding: 1.8rem;
+        padding: 1.2rem;
         text-align: left;
-        width: 4rem;
+        width: 1rem;
         background-color: lightblue;
-        
     }
-
+    
     table td:nth-child(even){
         outline: 1px solid #f1f3ef;
-        padding: 1.5rem;
+        padding:  1.2rem;
         text-align: left;
-        width: 4rem;
+        width: 1rem;
         background-color: pink;
         display: table-cell;
         vertical-align: middle;
         
     }
-
+    
     table th{
         outline: 1px solid orange;
-        padding: 1.4rem;
+        padding: 1  .4rem;
         text-align: left;
+        border: 5px solid red;
         
     }
     
@@ -96,9 +101,10 @@ body{
         background-color: #f1f3ef;
     }
     
-    table th {
+    table tr th {
         background-color: orange;
         color: black;
+        padding: 1rem 5rem;
     }
     
     /* Rest of your styling */

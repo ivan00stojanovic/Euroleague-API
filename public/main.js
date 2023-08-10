@@ -4,11 +4,14 @@ let kkczv = [];
 // let randomOne = null;
 let playerOTD = null;
 let selectedOptionIndex = -1;
-let counter = 1
+let counter = 0
+const answer1 = document.querySelector('.answer-1')
 const answer2 = document.querySelector('.answer-2')
 const answer3 = document.querySelector('.answer-3')
 const answer4 = document.querySelector('.answer-4')
-const allAnswers = [answer2,answer3,answer4]
+const answer5 = document.querySelector('.answer-5')
+const answer6 = document.querySelector('.answer-6')
+const allAnswers = [answer1, answer2, answer3, answer4, answer5, answer6]
 const instructions = document.querySelector('.instructions')
 
 
@@ -90,18 +93,18 @@ input.addEventListener('keydown', (event) => {
       counter++
       console.log(counter)
       input.placeholder =  `Guess ${counter} of 6`
-      allAnswers[0].innerHTML = ` <tr>
+      allAnswers[counter].innerHTML = ` <tr>
       <td>Giannis ANtenokuntmpo</td>
       <td>
           <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
           alt="red star"></td>
-      <td>SG</td>
+      <td>C</td>
       <td>192</td>
       <td>32</td>
       <td>26</td>
   </tr>`
+  console.log(allAnswers[counter])
     }
-        if(counter === 3) answer2.setAttribute('id', 'players-list')
   }
 });
 
