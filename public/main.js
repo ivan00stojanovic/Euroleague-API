@@ -12,6 +12,8 @@ const answer4 = document.querySelector('.answer-4')
 const answer5 = document.querySelector('.answer-5')
 const answer6 = document.querySelector('.answer-6')
 const allAnswers = [answer1, answer2, answer3, answer4, answer5, answer6]
+// console.log(allAnswers)
+// console.log(['testing', ... allAnswers])
 const instructions = document.querySelector('.instructions')
 
 
