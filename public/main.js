@@ -98,7 +98,7 @@ input.addEventListener('keydown', (event) => {
       allAnswers[counter].innerHTML = ` <tr>
       <td>Giannis ANtenokuntmpo</td>
       <td>
-          <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
+          <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
           alt="red star"></td>
       <td>C</td>
       <td>192</td>

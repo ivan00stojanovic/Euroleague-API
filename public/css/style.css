@@ -72,7 +72,7 @@ table {
     
     table td {
         outline: 1px solid #f1f3ef;
-        padding: 1.2rem;
+        padding: 1.2rem 5.4rem;
         text-align: left;
         width: 1rem;
         background-color: lightblue;
@@ -80,7 +80,7 @@ table {
     
     table td:nth-child(even){
         outline: 1px solid #f1f3ef;
-        padding:  1.2rem;
+        padding:  1.2rem 4.8rem;
         text-align: left;
         width: 1rem;
         background-color: pink;
@@ -93,7 +93,7 @@ table {
         outline: 1px solid orange;
         padding: 1  .4rem;
         text-align: left;
-        border: 5px solid red;
+        /* border: 5px solid red; */
         
     }
     
