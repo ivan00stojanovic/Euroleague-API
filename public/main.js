@@ -1,6 +1,7 @@
 const input = document.getElementById('player-input');
 const playersListElement = document.getElementById('players-list');
 let kkczv = [];
+let allPlayersArray = []
 // let randomOne = null;
 let playerOTD = null;
 let selectedOptionIndex = -1;
@@ -22,8 +23,10 @@ const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/getInfo');
   const data = await response.json();
   kkczv = data.map((players) => players.name);
+  allPlayersArray = data
+  console.log(allPlayersArray[0].age)
+  // kkczv = data
   // randomOne = data[Math.floor(Math.random() * data.length)];
-  // console.log(randomOne)
   playerOTD = getPlayerOTD(data)
   console.log(playerOTD)
   loadData(kkczv, playersListElement);
@@ -84,6 +87,9 @@ input.addEventListener('keydown', (event) => {
     highlightSelectedOption(visibleOptions);
     input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
+    // const test = kkczv.find(inputedPlayer => inputedPlayer.name === input.value)
+    console.log(kkczv)
+    // console.log(test)
     event.preventDefault();
     instructions.removeAttribute('id', 'player-list')
     if (selectedOptionIndex !== -1) {
@@ -91,20 +97,20 @@ input.addEventListener('keydown', (event) => {
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
       compareInput(input.value.toLowerCase(), playerOTD.name.toLowerCase());
-      input.value = '';
       counter++
+      input.value = '';
       console.log(counter)
       input.placeholder =  `Guess ${counter} of 6`
       allAnswers[counter].innerHTML = ` <tr>
-      <td>Giannis ANtenokuntmpo</td>
+      <td>Ivan</td>
       <td>
-          <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
-          alt="red star"></td>
+      <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
+      alt="red star"></td>
       <td>C</td>
       <td>192</td>
       <td>32</td>
       <td>26</td>
-  </tr>`
+      </tr>`
   console.log(allAnswers[counter])
     }
   }
