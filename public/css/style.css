@@ -86,7 +86,10 @@ table {
         background-color: pink;
         display: table-cell;
         vertical-align: middle;
-        
+    }
+
+    .testingKurac {
+        border: 2px solid red;
     }
     
     table th{

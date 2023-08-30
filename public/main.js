@@ -13,8 +13,6 @@ const answer4 = document.querySelector('.answer-4')
 const answer5 = document.querySelector('.answer-5')
 const answer6 = document.querySelector('.answer-6')
 const allAnswers = [answer1, answer2, answer3, answer4, answer5, answer6]
-// console.log(allAnswers)
-// console.log(['testing', ... allAnswers])
 const instructions = document.querySelector('.instructions')
 
 
@@ -24,7 +22,7 @@ const fetchPlayers = async () => {
   const data = await response.json();
   kkczv = data.map((players) => players.name);
   allPlayersArray = data
-  console.log(allPlayersArray[0].age)
+  console.log(allPlayersArray[0].jerseyNumber)
   // kkczv = data
   // randomOne = data[Math.floor(Math.random() * data.length)];
   playerOTD = getPlayerOTD(data)
@@ -87,8 +85,10 @@ input.addEventListener('keydown', (event) => {
     highlightSelectedOption(visibleOptions);
     input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
-    // const test = kkczv.find(inputedPlayer => inputedPlayer.name === input.value)
-    console.log(kkczv)
+    const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
+    console.log(inputedPlayer)
+    // console.log(kkczv)
+    console.log(allPlayersArray)
     // console.log(test)
     event.preventDefault();
     instructions.removeAttribute('id', 'player-list')
@@ -99,19 +99,20 @@ input.addEventListener('keydown', (event) => {
       compareInput(input.value.toLowerCase(), playerOTD.name.toLowerCase());
       counter++
       input.value = '';
-      console.log(counter)
+      // console.log(counter)
       input.placeholder =  `Guess ${counter} of 6`
-      allAnswers[counter].innerHTML = ` <tr>
-      <td>Ivan</td>
-      <td>
-      <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
-      alt="red star"></td>
-      <td>C</td>
-      <td>192</td>
-      <td>32</td>
-      <td>26</td>
-      </tr>`
-  console.log(allAnswers[counter])
+      // allAnswers[counter].innerHTML = ` <tr>
+      // <td>${inputedPlayer.name}</td>
+      // <td>
+      // <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
+      // alt="red star"></td>
+      // <td>${inputedPlayer.position}</td>
+      // <td>${inputedPlayer.height}</td>
+      // <td>${inputedPlayer.age}</td>
+      // <td>${inputedPlayer.jerseyNumber}</td>
+      // </tr>`
+      htmlGenerator(allAnswers[counter], inputedPlayer)
+  // console.log(allAnswers[counter])
     }
   }
 });
@@ -121,11 +122,20 @@ input.addEventListener('input', () => {
   selectedOptionIndex = -1;
 });
 
+const htmlGenerator = (tableRow, playerGenerated) => {
+  tableRow.innerHTML = ` <tr>
+  <td>${playerGenerated.name}</td>
+  <td>
+  <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
+  alt="red star"></td>
+  <td>${playerGenerated.position.join(' / ')}</td>
+  <td>${playerGenerated.height}</td>
+  <td>${playerGenerated.age}</td>
+  <td>${playerGenerated.jerseyNumber}</td>
+  </tr>`
 
-
-
-
-
+  // if(playerGenerated.age === 32) 
+}
 
 const highlightSelectedOption = (options) => {
   options.forEach((option, index) => {
