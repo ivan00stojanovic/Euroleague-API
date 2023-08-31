@@ -31,7 +31,9 @@ const fetchPlayers = async () => {
 };
 
 const getPlayerOTD = (data) => {
-  return data[Math.floor(Math.random() * data.length)]
+  const winningPlayer = data[Math.floor(Math.random() * data.length)]
+  console.log(winningPlayer)
+  return winningPlayer
 }
 
 
@@ -60,6 +62,7 @@ input.addEventListener('input', () => {
     playersListElement.style.display = 'block'; // Show autocomplete list
   }
 });
+
 
 input.addEventListener('keydown', (event) => {
   const searchText = input.value.trim();
@@ -101,22 +104,11 @@ input.addEventListener('keydown', (event) => {
       input.value = '';
       // console.log(counter)
       input.placeholder =  `Guess ${counter} of 6`
-      // allAnswers[counter].innerHTML = ` <tr>
-      // <td>${inputedPlayer.name}</td>
-      // <td>
-      // <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
-      // alt="red star"></td>
-      // <td>${inputedPlayer.position}</td>
-      // <td>${inputedPlayer.height}</td>
-      // <td>${inputedPlayer.age}</td>
-      // <td>${inputedPlayer.jerseyNumber}</td>
-      // </tr>`
       htmlGenerator(allAnswers[counter], inputedPlayer)
-  // console.log(allAnswers[counter])
+      
     }
   }
 });
-
 // Reset selectedOptionIndex to 0 after each keydown event
 input.addEventListener('input', () => {
   selectedOptionIndex = -1;
@@ -134,7 +126,11 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   <td>${playerGenerated.jerseyNumber}</td>
   </tr>`
 
-  // if(playerGenerated.age === 32) 
+  // console.log(playerGenerated.position, playerGenerated.position.length)
+
+  // if(playerGenerated.position.length > 1) tableRow.setAttribute('id', 'players-list')
+  if(Math.abs(playerGenerated.age - playerOTD)<= 2) console.log('bravo') 
+  
 }
 
 const highlightSelectedOption = (options) => {

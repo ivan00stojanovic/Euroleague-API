@@ -69,28 +69,26 @@ table {
         justify-content: center;
         align-items: center;
     }
-    
+
+
     table td {
         outline: 1px solid #f1f3ef;
-        padding: 1.2rem 5.4rem;
+        padding: 1.2rem 5.2rem;
         text-align: left;
         width: 1rem;
         background-color: lightblue;
     }
     
-    table td:nth-child(even){
-        outline: 1px solid #f1f3ef;
-        padding:  1.2rem 4.8rem;
-        text-align: left;
-        width: 1rem;
-        background-color: pink;
-        display: table-cell;
-        vertical-align: middle;
+    table td:nth-child(4){
+        padding: 1.2rem 4.85rem;
+        /* background-color: pink; */
     }
 
-    .testingKurac {
-        border: 2px solid red;
-    }
+    
+    /* table td:nth-child(3){
+        padding: 1.2rem 4.85rem;
+        background-color: pink;
+    } */
     
     table th{
         outline: 1px solid orange;

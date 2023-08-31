@@ -58,7 +58,7 @@ let playersData = [
     {
     "name": "Stefan Markovic",
     "team": "Crvena Zvezda",
-    "position": ["G", "F"],
+    "position": ["PG", "SG"],
     "height": 198,
     "age": 35,
     "jerseyNumber": 27
