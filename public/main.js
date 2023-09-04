@@ -118,9 +118,12 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   tableRow.innerHTML = ` <tr>
   <td>${playerGenerated.name}</td>
   <td>
-  <img width="80px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" 
-  alt="red star"></td>
-  <td>${playerGenerated.position.join(' / ')}</td>
+    <div>
+      <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" alt="red star">
+      <span class="abb-padding">CZV</span>
+    </div>
+      </td>
+  <td>${playerGenerated.position.join(' ___ ')}</td>
   <td>${playerGenerated.height}</td>
   <td>${playerGenerated.age}</td>
   <td>${playerGenerated.jerseyNumber}</td>

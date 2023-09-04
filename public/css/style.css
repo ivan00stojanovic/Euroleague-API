@@ -61,51 +61,72 @@ body{
     overflow-y: auto; /* Add vertical scrollbar if needed */
 }
 
+/* Center text within all table cells and add slight border */
 table {
-        width: 100%;
-        border-collapse: collapse; 
-        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; /* Center text horizontally */
+}
+
+table td {
+    padding: 1.2rem 0; /* Adjust padding as needed */
+    background-color: transparent; /* Set background color here */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset; /* Add a slight inset shadow */
+}
 
 
-    table td {
-        outline: 1px solid #f1f3ef;
-        padding: 1.2rem 5.2rem;
-        text-align: left;
-        width: 1rem;
-        background-color: lightblue;
-    }
+table th {
+    background-color: orange;
+    color: black;
+    padding: 1rem 0; /* Adjust padding as needed */
+}
+
+table td img {
+    display: block; /* Ensure the image is a block-level element */
+    margin: 0 auto; /* Center the image horizontally within the cell */
+    margin-bottom: 0.2rem;
+}
+
+/* .abb-padding{
+    margin-bottom: 15rem;
+} */
+
     
-    table td:nth-child(4){
-        padding: 1.2rem 4.85rem;
-        /* background-color: pink; */
-    }
-
-    
-    /* table td:nth-child(3){
+    /* table td:nth-child(4){
         padding: 1.2rem 4.85rem;
         background-color: pink;
-    } */
+    }
+
+    table td:nth-child(5){
+        padding: 1.2rem 5.4rem;
+        background-color: aqua;
+    }
+
+    table td:nth-child(6){
+        padding: 1.2rem 4.9rem;
+        background-color: rosybrown;
+    }
+
     
     table th{
         outline: 1px solid orange;
         padding: 1  .4rem;
         text-align: left;
-        /* border: 5px solid red; */
+        /* border: 5px solid red; 
         
-    }
+    }  */
     
     table tr {
-        background-color: #f1f3ef;
+        /* border: 2px solid red; */
     }
     
     table tr th {
         background-color: orange;
         color: black;
-        padding: 1rem 5rem;
+        padding: 1rem 4.5rem;
+        text-align: center;
+        outline: none;
+        /* justify-content: center; */
     }
     
     /* Rest of your styling */
