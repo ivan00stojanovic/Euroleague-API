@@ -119,7 +119,7 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   <td>${playerGenerated.name}</td>
   <td>
     <div>
-      <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" alt="red star">
+      <img width="50px" height="60px" src="${playerGenerated.team[0]}" alt="red star">
       <span class="abb-padding">${playerGenerated.team[1]}</span>
     </div>
       </td>

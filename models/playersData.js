@@ -1,7 +1,7 @@
 let playersData = [
     {
     "name": "Nemanja Nedovic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["SG"],
     "height": 192,
     "age": 32,
@@ -9,7 +9,7 @@ let playersData = [
     },
     {
     "name": "Facundo Campazzo",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG"],
     "height": 181,
     "age": 32,
@@ -17,7 +17,7 @@ let playersData = [
     },
     {
     "name": "Luca Vildoza",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG"],
     "height": 191,
     "age": 27,
@@ -25,7 +25,7 @@ let playersData = [
     },
     {
     "name": "Luka Mitrovic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PF", "C"],
     "height": 206,
     "age": 30,
@@ -33,7 +33,7 @@ let playersData = [
     },
     {
     "name": "Filip Petrusev",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["C"],
     "height": 211,
     "age": 23,
@@ -41,7 +41,7 @@ let playersData = [
     },
     {
     "name": "Ognjen Dobric",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["SF"],
     "height": 200,
     "age": 28,
@@ -49,7 +49,7 @@ let playersData = [
     },
     {
     "name": "Branko Lazic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG"],
     "height": 195,
     "age": 34,
@@ -57,7 +57,7 @@ let playersData = [
     },
     {
     "name": "Stefan Markovic",
-    "team": ["Crvena Zvezda", 'CZV'],
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG", "SG"],
     "height": 198,
     "age": 35,
@@ -65,7 +65,7 @@ let playersData = [
     },
     {
     "name": "Ben Bentil",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PF"],
     "height": 206,
     "age": 28,
@@ -73,7 +73,7 @@ let playersData = [
     },
     {
     "name": "Hassan Martin",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PF"],
     "height": 201,
     "age": 27,
@@ -81,7 +81,7 @@ let playersData = [
     },
     {
     "name": "John Holland",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["SG", "SF"],
     "height": 192,
     "age": 32,
@@ -89,7 +89,7 @@ let playersData = [
     },
     {
     "name": "Jaylen Adams",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG"],
     "height": 188,
     "age": 27,
@@ -97,7 +97,7 @@ let playersData = [
     },
     {
     "name": "Nikola Ivanovic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["SG"],
     "height": 199,
     "age": 33,
@@ -105,7 +105,7 @@ let playersData = [
     },
     {
     "name": "Dalibor Ilic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PF"],
     "height": 202,
     "age": 23,
@@ -113,7 +113,7 @@ let playersData = [
     },
     {
     "name": "Ognjen Kuzmic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["C"],
     "height": 213,
     "age": 33,
@@ -121,7 +121,7 @@ let playersData = [
     },
     {
     "name": "Stefan Lazarevic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["SF", "PF"],
     "height": 198,
     "age": 26,
@@ -129,7 +129,7 @@ let playersData = [
     },
     {
     "name": "Miroslav Raduljica",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["C"],
     "height": 213,
     "age": 35,
@@ -137,7 +137,7 @@ let playersData = [
     },
     {
     "name": "Nikola Topic",
-    "team": "Crvena Zvezda",
+    "team": ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png", 'CZV'],
     "position": ["PG", "SG"],
     "height": 195,
     "age": 17,
