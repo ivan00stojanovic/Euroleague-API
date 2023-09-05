@@ -120,10 +120,10 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   <td>
     <div>
       <img width="50px" height="60px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena_zvezda_logo.svg/800px-KK_Crvena_zvezda_logo.svg.png" alt="red star">
-      <span class="abb-padding">CZV</span>
+      <span class="abb-padding">${playerGenerated.team[1]}</span>
     </div>
       </td>
-  <td>${playerGenerated.position.join(' ___ ')}</td>
+  <td>${playerGenerated.position.join(' / ')}</td>
   <td>${playerGenerated.height}</td>
   <td>${playerGenerated.age}</td>
   <td>${playerGenerated.jerseyNumber}</td>
