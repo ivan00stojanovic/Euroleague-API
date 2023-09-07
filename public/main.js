@@ -158,3 +158,10 @@ const compareInput = (inputed, randomPlayerName) => {
 
 // Fetch players when the page loads
 fetchPlayers();
+
+
+CHECKLIST
+//  Test out giving the user yellow bg's when he's close in a field
+//  CSS => Differentiate the instruction table from the guesses
+//  Modify the compareInput function to check for every property between the playerOTD
+//  That's it for now i guess 
