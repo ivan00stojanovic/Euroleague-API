@@ -99,7 +99,7 @@ input.addEventListener('keydown', (event) => {
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
-      compareInput(input.value.toLowerCase(), playerOTD.name.toLowerCase());
+      compareInput(input, playerOTD);
       counter++
       input.value = '';
       // console.log(counter)
@@ -109,6 +109,7 @@ input.addEventListener('keydown', (event) => {
     }
   }
 });
+
 // Reset selectedOptionIndex to 0 after each keydown event
 input.addEventListener('input', () => {
   selectedOptionIndex = -1;
@@ -132,8 +133,11 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   // console.log(playerGenerated.position, playerGenerated.position.length)
 
   // if(playerGenerated.position.length > 1) tableRow.setAttribute('id', 'players-list')
-  if(Math.abs(playerGenerated.age - playerOTD)<= 2) console.log('bravo') 
-  
+  // if(Math.abs(playerGenerated.age - playerOTD.age) <= 7) {
+  //   console.log('bravo') 
+  // }else(
+  //   console.log('ne bravo')
+  // )
 }
 
 const highlightSelectedOption = (options) => {
@@ -147,7 +151,15 @@ const highlightSelectedOption = (options) => {
 };
 
 const compareInput = (inputed, randomPlayerName) => {
-  if (inputed === randomPlayerName) {
+  const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
+  if(Math.abs(inputedPlayer.age - randomPlayerName.age) <=5){
+    console.log('Hell yeah!')
+  }else{
+    console.log('Bol')
+  }
+  // console.log(inputedPlayer)
+  // console.log(inputedPlayer.age, '<<<<<=====')
+  if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     console.log('Inputs match! Congratulations!');
   } else {
     console.log('Inputs do not match. Keep trying!');
@@ -160,7 +172,7 @@ const compareInput = (inputed, randomPlayerName) => {
 fetchPlayers();
 
 
-CHECKLIST
+// CHECKLIST
 //  Test out giving the user yellow bg's when he's close in a field
 //  CSS => Differentiate the instruction table from the guesses
 //  Modify the compareInput function to check for every property between the playerOTD
