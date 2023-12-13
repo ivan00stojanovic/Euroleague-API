@@ -12,8 +12,14 @@ const answer3 = document.querySelector('.answer-3')
 const answer4 = document.querySelector('.answer-4')
 const answer5 = document.querySelector('.answer-5')
 const answer6 = document.querySelector('.answer-6')
-const allAnswers = [answer1, answer2, answer3, answer4, answer5, answer6]
+const allAnswers = ['filler', answer1, answer2, answer3, answer4, answer5, answer6]
 const instructions = document.querySelector('.instructions')
+
+// TODO
+// 1. Make li options clickable
+// 2. Make the autocomplete go over the result table, not break the box model
+// 3. Make the table a fix width, so that longer names don't widen it
+// 4. Play around with the UI, help the user if they're close to an answer(age/height ~ 2, ex club, etc. )
 
 
 
@@ -22,7 +28,7 @@ const fetchPlayers = async () => {
   const data = await response.json();
   kkczv = data.map((players) => players.name);
   allPlayersArray = data
-  console.log(allPlayersArray[0].jerseyNumber)
+  // console.log(allPlayersArray[0].jerseyNumber)
   // kkczv = data
   // randomOne = data[Math.floor(Math.random() * data.length)];
   playerOTD = getPlayerOTD(data)
@@ -32,7 +38,7 @@ const fetchPlayers = async () => {
 
 const getPlayerOTD = (data) => {
   const winningPlayer = data[Math.floor(Math.random() * data.length)]
-  console.log(winningPlayer)
+  // console.log(winningPlayer)
   return winningPlayer
 }
 
@@ -116,6 +122,8 @@ input.addEventListener('input', () => {
 });
 
 const htmlGenerator = (tableRow, playerGenerated) => {
+  console.log(tableRow)
+  
   tableRow.innerHTML = ` <tr>
   <td>${playerGenerated.name}</td>
   <td>
@@ -154,11 +162,10 @@ const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   if(Math.abs(inputedPlayer.age - randomPlayerName.age) <=5){
     console.log('Hell yeah!')
+    allAnswers[1].classList.add('close_yellow_bg')
   }else{
     console.log('Bol')
   }
-  // console.log(inputedPlayer)
-  // console.log(inputedPlayer.age, '<<<<<=====')
   if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     console.log('Inputs match! Congratulations!');
   } else {

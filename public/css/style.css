@@ -59,6 +59,8 @@ body{
   .table-container {
     max-height: 300px; /* Set the maximum height for the container */
     overflow-y: auto; /* Add vertical scrollbar if needed */
+    max-width: 1100px;
+
 }
 
 /* Center text within all table cells and add slight border */
@@ -66,12 +68,19 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: center; /* Center text horizontally */
+    table-layout: fixed;
+    
 }
 
 table td {
     padding: 1.2rem 0; /* Adjust padding as needed */
     background-color: transparent; /* Set background color here */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset; /* Add a slight inset shadow */
+    word-wrap: break-word;
+}
+
+.close_yellow_bg{
+    background-color: yellow;
 }
 
 
@@ -79,6 +88,7 @@ table th {
     background-color: orange;
     color: black;
     padding: 1rem 0; /* Adjust padding as needed */
+    /* word-wrap: break-word; */
 }
 
 table td img {
