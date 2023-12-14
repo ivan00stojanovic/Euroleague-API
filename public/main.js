@@ -162,7 +162,7 @@ const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   if(Math.abs(inputedPlayer.age - randomPlayerName.age) <=5){
     console.log('Hell yeah!')
-    allAnswers[1].classList.add('close_yellow_bg')
+    allAnswers[counter + 1].classList.add('close_yellow_bg')
   }else{
     console.log('Bol')
   }
