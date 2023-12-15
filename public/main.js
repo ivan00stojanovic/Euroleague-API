@@ -97,7 +97,7 @@ input.addEventListener('keydown', (event) => {
     const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
     console.log(inputedPlayer)
     // console.log(kkczv)
-    console.log(allPlayersArray)
+    // console.log(allPlayersArray)
     // console.log(test)
     event.preventDefault();
     instructions.removeAttribute('id', 'player-list')
@@ -105,12 +105,11 @@ input.addEventListener('keydown', (event) => {
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
-      compareInput(input, playerOTD);
       counter++
-      input.value = '';
-      // console.log(counter)
-      input.placeholder =  `Guess ${counter} of 6`
       htmlGenerator(allAnswers[counter], inputedPlayer)
+      compareInput(input, playerOTD);
+      input.value = '';
+      input.placeholder =  `Guess ${counter} of 6`
       
     }
   }
@@ -122,30 +121,25 @@ input.addEventListener('input', () => {
 });
 
 const htmlGenerator = (tableRow, playerGenerated) => {
-  console.log(tableRow)
   
   tableRow.innerHTML = ` <tr>
   <td>${playerGenerated.name}</td>
   <td>
     <div>
       <img width="50px" height="60px" src="${playerGenerated.team[0]}" alt="red star">
-      <span class="abb-padding">${playerGenerated.team[1]}</span>
+      <span class="generated-team">${playerGenerated.team[1]}</span>
     </div>
       </td>
-  <td>${playerGenerated.position.join(' / ')}</td>
+  <td class="generated-position">${playerGenerated.position.join(' / ')}</td>
   <td>${playerGenerated.height}</td>
-  <td>${playerGenerated.age}</td>
-  <td>${playerGenerated.jerseyNumber}</td>
+  <td class="generated-age">${playerGenerated.age}</td>
+  <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
   </tr>`
 
-  // console.log(playerGenerated.position, playerGenerated.position.length)
-
-  // if(playerGenerated.position.length > 1) tableRow.setAttribute('id', 'players-list')
-  // if(Math.abs(playerGenerated.age - playerOTD.age) <= 7) {
-  //   console.log('bravo') 
-  // }else(
-  //   console.log('ne bravo')
-  // )
+  const generatedAge = tableRow.querySelector('.generated-age')
+  console.log(tableRow, '<<<<====tableRow')
+  console.log(generatedAge,'<<<<==== generatedAge from tableRow')
+  // generatedAge.classList.add('close-yellow-bg')
 }
 
 const highlightSelectedOption = (options) => {
@@ -160,18 +154,28 @@ const highlightSelectedOption = (options) => {
 
 const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
-  if(Math.abs(inputedPlayer.age - randomPlayerName.age) <=5){
+  let jaje = allAnswers[counter]
+  const testing = jaje.querySelector('.generated-age')
+  console.log(jaje, '<<<<====jaje')
+  console.log(testing, '<<<<==== generatedAge from jaje')
+
+  compareAge(inputedPlayer, randomPlayerName, jaje)
+  if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
+    // console.log('Inputs match! Congratulations!');
+  } else {
+    // console.log('Inputs do not match. Keep trying!');
+  }
+};
+
+const compareAge = (x, y, test) => {
+  const age = test.querySelector('.generated-age')
+  if(Math.abs(x.height - y.height) <=15){
     console.log('Hell yeah!')
-    allAnswers[counter + 1].classList.add('close_yellow_bg')
+    age.classList.add('close-yellow-bg')
   }else{
     console.log('Bol')
   }
-  if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
-    console.log('Inputs match! Congratulations!');
-  } else {
-    console.log('Inputs do not match. Keep trying!');
-  }
-};
+}
 
 
 
