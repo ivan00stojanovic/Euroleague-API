@@ -131,14 +131,14 @@ const htmlGenerator = (tableRow, playerGenerated) => {
     </div>
       </td>
   <td class="generated-position">${playerGenerated.position.join(' / ')}</td>
-  <td>${playerGenerated.height}</td>
+  <td class="generated-height">${playerGenerated.height}</td>
   <td class="generated-age">${playerGenerated.age}</td>
   <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
   </tr>`
 
   const generatedAge = tableRow.querySelector('.generated-age')
-  console.log(tableRow, '<<<<====tableRow')
-  console.log(generatedAge,'<<<<==== generatedAge from tableRow')
+  // console.log(tableRow, '<<<<====tableRow')
+  // console.log(generatedAge,'<<<<==== generatedAge from tableRow')
   // generatedAge.classList.add('close-yellow-bg')
 }
 
@@ -154,12 +154,15 @@ const highlightSelectedOption = (options) => {
 
 const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
-  let jaje = allAnswers[counter]
-  const testing = jaje.querySelector('.generated-age')
-  console.log(jaje, '<<<<====jaje')
+  let currentRow = allAnswers[counter]
+  const testing = currentRow.querySelector('.generated-age')
+  console.log(currentRow, '<<<<====currentRow')
   console.log(testing, '<<<<==== generatedAge from jaje')
 
-  compareAge(inputedPlayer, randomPlayerName, jaje)
+  compareAge(inputedPlayer, randomPlayerName, currentRow)
+  compareJersey(inputedPlayer,randomPlayerName,currentRow)
+  compareHeight(inputedPlayer,randomPlayerName,currentRow)
+  comparePosition(inputedPlayer,randomPlayerName,currentRow)
   if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     // console.log('Inputs match! Congratulations!');
   } else {
@@ -167,15 +170,62 @@ const compareInput = (inputed, randomPlayerName) => {
   }
 };
 
-const compareAge = (x, y, test) => {
-  const age = test.querySelector('.generated-age')
-  if(Math.abs(x.height - y.height) <=15){
-    console.log('Hell yeah!')
-    age.classList.add('close-yellow-bg')
-  }else{
-    console.log('Bol')
+const compareAge = (x, y, tdAge) => {
+  const age = tdAge.querySelector('.generated-age')
+  if(x.age === y.age){
+    age.classList.add("green-bg-add")
+  }else if(Math.abs(x.age - y.age) <= 5){
+    age.classList.add('yellow-bg-add')
   }
 }
+
+const compareJersey = (x, y, tdJersey) => {
+  const jerseyNumber = tdJersey.querySelector('.generated-jersey-number')
+  if(x.jerseyNumber === y.jerseyNumber){
+    jerseyNumber.classList.add("green-bg-add")
+  }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 5){
+    jerseyNumber.classList.add('yellow-bg-add')
+  }
+}
+
+const compareHeight = (x, y, tdHeight) => {
+  const height = tdHeight.querySelector('.generated-height')
+  if(x.height === y.height){
+    height.classList.add("green-bg-add")
+  }else if(Math.abs(x.height - y.height) <= 5){
+    height.classList.add('yellow-bg-add')
+  }
+}
+
+const comparePosition = (x, y, tdPosition) => {
+  const position = tdPosition.querySelector('.generated-pos')
+  if(x.position === y.position){
+    position.classList.add("green-bg-add")
+  }else if(x.position.includes(y.position)){
+    position.classList.add('yellow-bg-add')
+  }
+  console.log(x.position, y.position)
+}
+
+
+
+// const yesirq = () => {
+//   return console.log('probno 2')
+// }
+
+
+// const yesirw = () => {
+//   return console.log('probno 2')
+// }
+
+// const yesire = () => {
+//   return console.log('probno 3')
+// }
+
+// let rrr = [yesirq, yesirw, yesire]
+
+// rrr.forEach(x => x())
+
 
 
 

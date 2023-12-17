@@ -69,27 +69,33 @@ table {
     border-collapse: collapse;
     text-align: center; /* Center text horizontally */
     table-layout: fixed;
-    
 }
 
 table td {
-    padding: 1.2rem 0; /* Adjust padding as needed */
-    background-color: transparent; /* Set background color here */
+    padding: 0.5rem 0;
+    background-color: transparent; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset; /* Add a slight inset shadow */
     word-wrap: break-word;
+    
 }
 
-.close-yellow-bg{
+.yellow-bg-add{
     background-color: yellow;
 }
 
+.green-bg-add{
+    background-color: green;
+}
 
-table th {
-    background-color: orange;
+
+table > th {
+    /* background-color: orange; */
     color: black;
     padding: 1rem 0; /* Adjust padding as needed */
     /* word-wrap: break-word; */
 }
+
+
 
 table td img {
     display: block; /* Ensure the image is a block-level element */
@@ -97,41 +103,10 @@ table td img {
     margin-bottom: 0.2rem;
 }
 
-/* .abb-padding{
-    margin-bottom: 15rem;
-} */
-
-/* table td:nth-child(4){
-    padding: 1.2rem 4.85rem;
-    background-color: pink;
-} */
-    /* table td:nth-child(4){
-        padding: 1.2rem 4.85rem;
-        background-color: pink;
-    }
-
-    table td:nth-child(5){
-        padding: 1.2rem 5.4rem;
-        background-color: aqua;
-    }
-
-    table td:nth-child(6){
-        padding: 1.2rem 4.9rem;
-        background-color: rosybrown;
-    }
-
     
-    table th{
-        outline: 1px solid orange;
-        padding: 1  .4rem;
-        text-align: left;
-        /* border: 5px solid red; 
-        
-    }  */
-    
-    table tr {
-        /* border: 2px solid red; */
-    }
+table tr {
+    /* border: 2px solid red; */
+}
     
     table tr th {
         background-color: orange;
@@ -141,6 +116,15 @@ table td img {
         outline: none;
         /* justify-content: center; */
     }
+
+        table tr .instructions-ht{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     
-    /* Rest of your styling */
+   /* table  td:nth-child(4){
+            marg
+   } */
+        
     
