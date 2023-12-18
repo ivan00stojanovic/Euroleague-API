@@ -163,6 +163,7 @@ const compareInput = (inputed, randomPlayerName) => {
   compareJersey(inputedPlayer,randomPlayerName,currentRow)
   compareHeight(inputedPlayer,randomPlayerName,currentRow)
   comparePosition(inputedPlayer,randomPlayerName,currentRow)
+  // compareTeam(inputedPlayer,randomPlayerName,currentRow)
   if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     // console.log('Inputs match! Congratulations!');
   } else {
@@ -198,11 +199,16 @@ const compareHeight = (x, y, tdHeight) => {
 }
 
 const comparePosition = (x, y, tdPosition) => {
-  const position = tdPosition.querySelector('.generated-pos')
-  if(x.position === y.position){
+  const position = tdPosition.querySelector('.generated-position')
+  const commonPositions = x.position.filter(position => y.position.includes(position))
+  if(commonPositions.length === y.position.length && commonPositions.length == x.position.length){
     position.classList.add("green-bg-add")
-  }else if(x.position.includes(y.position)){
+    console.log('On the money!', commonPositions)
+  }else if(commonPositions.length >= 0){
+    console.log('Close one boy', commonPositions)
     position.classList.add('yellow-bg-add')
+  }else{
+    console.log('Get em next time boyo')
   }
   console.log(x.position, y.position)
 }
