@@ -156,8 +156,8 @@ const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   let currentRow = allAnswers[counter]
   const testing = currentRow.querySelector('.generated-age')
-  console.log(currentRow, '<<<<====currentRow')
-  console.log(testing, '<<<<==== generatedAge from jaje')
+  // console.log(currentRow, '<<<<====currentRow')
+  // console.log(testing, '<<<<==== generatedAge from jaje')
 
   compareAge(inputedPlayer, randomPlayerName, currentRow)
   compareJersey(inputedPlayer,randomPlayerName,currentRow)
@@ -200,11 +200,12 @@ const compareHeight = (x, y, tdHeight) => {
 
 const comparePosition = (x, y, tdPosition) => {
   const position = tdPosition.querySelector('.generated-position')
-  const commonPositions = x.position.filter(position => y.position.includes(position))
+  const commonPositions = y.position.filter(playerPosition => x.position.includes(playerPosition))
+  console.log(x.position,'INPUT', y.position,'POTD', commonPositions,'COMMON')
   if(commonPositions.length === y.position.length && commonPositions.length == x.position.length){
     position.classList.add("green-bg-add")
     console.log('On the money!', commonPositions)
-  }else if(commonPositions.length >= 0){
+  }else if(commonPositions.length > 0){
     console.log('Close one boy', commonPositions)
     position.classList.add('yellow-bg-add')
   }else{
