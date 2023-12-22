@@ -24,7 +24,7 @@ const pushPlayers = async () => {
       // Check if existing player already exists
       const existingPlayer = await Player.findOne({ name: igrach.name });
       if (existingPlayer) {
-        // console.log(`Player '${igrach.name}' already exists. Skipping.`);
+        console.log(`Player '${igrach.name}' already exists. Skipping.`);
         continue;
       }
       const player = await Player.create(igrach);
@@ -35,7 +35,43 @@ const pushPlayers = async () => {
   }
 };
 
-//pushPlayers()
+// pushPlayers()
+
+async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
+  try {
+    // Retrieve the player from the database
+    const player = await Player.findById(playerId);
+
+    if (!player) {
+      console.log('Player not found');
+      return;
+    }
+
+    // Modify the "team" array
+    player.team = [newImageUrl, newTeamName];
+
+    // Save the updated document back to the database
+    const updatedPlayer = await player.save();
+
+    console.log('Player updated successfully:', updatedPlayer);
+  } catch (error) {
+    console.error('Error updating player:', error);
+  }
+}
+
+// Example usage
+// updatePlayerTeam('64b573b874ffb47eeb8a8db9', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png', 'RMB');
+
+
+
+// // Update documents where team is an empty string
+// Player.updateMany({ team: '' }, { $set: { team: [] } })
+//   .then((result) => {
+//     console.log(`${result.nModified} documents updated`);
+//   })
+//   .catch((error) => {
+//     console.error(`Error updating documents: ${error.message}`);
+//   });
 
 // app.get('/playersData.js', (req, res) => {
 //   try {

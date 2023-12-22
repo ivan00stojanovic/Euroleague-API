@@ -57,7 +57,7 @@ body{
   }
 
   .table-container {
-    max-height: 300px; /* Set the maximum height for the container */
+    max-height: 450px; /* Set the maximum height for the container */
     overflow-y: auto; /* Add vertical scrollbar if needed */
     max-width: 1100px;
 
@@ -72,11 +72,13 @@ table {
 }
 
 table td {
-    padding: 0.5rem 0;
-    background-color: transparent; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset; /* Add a slight inset shadow */
-    word-wrap: break-word;
-    
+    /* padding: 0.5rem 0; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset; 
+}
+
+table td .generated-team {
+    /* border: none;    */
+    padding: 0.5rem;
 }
 
 .yellow-bg-add{
@@ -85,27 +87,14 @@ table td {
 
 .green-bg-add{
     background-color: green;
+    color: white;
 }
-
-
-table > th {
-    /* background-color: orange; */
-    color: black;
-    padding: 1rem 0; /* Adjust padding as needed */
-    /* word-wrap: break-word; */
-}
-
 
 
 table td img {
     display: block; /* Ensure the image is a block-level element */
     margin: 0 auto; /* Center the image horizontally within the cell */
-    margin-bottom: 0.2rem;
-}
-
-    
-table tr {
-    /* border: 2px solid red; */
+    margin-bottom: 0.5rem;
 }
     
     table tr th {
@@ -113,8 +102,6 @@ table tr {
         color: black;
         padding: 1rem 4.5rem;
         text-align: center;
-        outline: none;
-        /* justify-content: center; */
     }
 
         table tr .instructions-ht{
@@ -123,8 +110,6 @@ table tr {
             align-items: center;
         }
     
-   /* table  td:nth-child(4){
-            marg
-   } */
+
         
     

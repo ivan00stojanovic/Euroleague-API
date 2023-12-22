@@ -125,9 +125,9 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   tableRow.innerHTML = ` <tr>
   <td>${playerGenerated.name}</td>
   <td>
-    <div>
+    <div class="generated-team">
       <img width="50px" height="60px" src="${playerGenerated.team[0]}" alt="red star">
-      <span class="generated-team">${playerGenerated.team[1]}</span>
+      <span class="team-text ">${playerGenerated.team[1]}</span>
     </div>
       </td>
   <td class="generated-position">${playerGenerated.position.join(' / ')}</td>
@@ -163,6 +163,7 @@ const compareInput = (inputed, randomPlayerName) => {
   compareJersey(inputedPlayer,randomPlayerName,currentRow)
   compareHeight(inputedPlayer,randomPlayerName,currentRow)
   comparePosition(inputedPlayer,randomPlayerName,currentRow)
+  compareTeam(inputedPlayer,randomPlayerName,currentRow)
   // compareTeam(inputedPlayer,randomPlayerName,currentRow)
   if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     // console.log('Inputs match! Congratulations!');
@@ -201,18 +202,26 @@ const compareHeight = (x, y, tdHeight) => {
 const comparePosition = (x, y, tdPosition) => {
   const position = tdPosition.querySelector('.generated-position')
   const commonPositions = y.position.filter(playerPosition => x.position.includes(playerPosition))
-  console.log(x.position,'INPUT', y.position,'POTD', commonPositions,'COMMON')
+  
   if(commonPositions.length === y.position.length && commonPositions.length == x.position.length){
     position.classList.add("green-bg-add")
-    console.log('On the money!', commonPositions)
   }else if(commonPositions.length > 0){
-    console.log('Close one boy', commonPositions)
     position.classList.add('yellow-bg-add')
-  }else{
-    console.log('Get em next time boyo')
   }
   console.log(x.position, y.position)
 }
+
+const compareTeam = (x, y, tdTeam) => {
+  const team = tdTeam.querySelector('.generated-team')
+  if(x.team[1] === y.team[1]){ 
+    team.classList.add('green-bg-add')
+  }else if(x.team[1] !== y.team[1] && x.team.includes(y.team[1])){
+    console.log('Free Facu')
+    team.classList.add('yellow-bg-add')
+  }
+
+}
+
 
 
 
