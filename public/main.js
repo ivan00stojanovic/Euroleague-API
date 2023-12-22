@@ -216,7 +216,6 @@ const compareTeam = (x, y, tdTeam) => {
   if(x.team[1] === y.team[1]){ 
     team.classList.add('green-bg-add')
   }else if(x.team[1] !== y.team[1] && x.team.includes(y.team[1])){
-    console.log('Free Facu')
     team.classList.add('yellow-bg-add')
   }
 

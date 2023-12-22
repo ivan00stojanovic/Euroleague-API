@@ -16,6 +16,7 @@ dotenv.config({ path: './config/config.env' });
 // Handle CORS error
 app.use(cors());
 
+
 connectDB();
 
 const pushPlayers = async () => {
@@ -37,27 +38,27 @@ const pushPlayers = async () => {
 
 // pushPlayers()
 
-async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
-  try {
-    // Retrieve the player from the database
-    const player = await Player.findById(playerId);
+// async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
+//   try {
+//     // Retrieve the player from the database
+//     const player = await Player.findById(playerId);
 
-    if (!player) {
-      console.log('Player not found');
-      return;
-    }
+//     if (!player) {
+//       console.log('Player not found');
+//       return;
+//     }
 
-    // Modify the "team" array
-    player.team = [newImageUrl, newTeamName];
+//     // Modify the "team" array
+//     player.team = [newImageUrl, newTeamName];
 
-    // Save the updated document back to the database
-    const updatedPlayer = await player.save();
+//     // Save the updated document back to the database
+//     const updatedPlayer = await player.save();
 
-    console.log('Player updated successfully:', updatedPlayer);
-  } catch (error) {
-    console.error('Error updating player:', error);
-  }
-}
+//     console.log('Player updated successfully:', updatedPlayer);
+//   } catch (error) {
+//     console.error('Error updating player:', error);
+//   }
+// }
 
 // Example usage
 // updatePlayerTeam('64b573b874ffb47eeb8a8db9', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png', 'RMB');
@@ -91,6 +92,16 @@ app.get('/getInfo', (req, res) => {
     }
   });
 
+  // Serve index.html as the default file
+app.get('/', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  } catch (error) {
+    console.error('Error loading index.html:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
   app.get('/players/:playerName', (req, res) => {
       try {
           const playerName = req.params.playerName.toLowerCase();
@@ -107,8 +118,11 @@ app.get('/getInfo', (req, res) => {
   });
   
 
-const PORT = process.env.PORT || 1991;
+const PORT = process.env.PORT || 5500 || 1991;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}, Hell Yea`);
 });
+
+
+
