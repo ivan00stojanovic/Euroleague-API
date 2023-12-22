@@ -187,8 +187,6 @@ const compareAge = (x, y, tdAge) => {
   }else if(Math.abs(x.age - y.age) <= 5){
     age.classList.add('yellow-bg-add')
   }
-
-  // if(x.age > y.age) age.innerHTML += downArrow
   arrowDirection(x.age, y.age, age)
 }
 
@@ -199,24 +197,18 @@ const compareJersey = (x, y, tdJersey) => {
   }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 5){
     jerseyNumber.classList.add('yellow-bg-add')
   }
-
-  // if(x.jerseyNumber > y.jerseyNumber) jerseyNumber.innerHTML += downArrow
-  // if(x.jerseyNumber < y.jerseyNumber) jerseyNumber.innerHTML += upArrow
+  
   arrowDirection(x.jerseyNumber, y.jerseyNumber, jerseyNumber)
 }
 
 const compareHeight = (x, y, tdHeight) => {
   const height = tdHeight.querySelector('.generated-height')
-  // height.innerHTML += x.height > y.height ? downArrow : upArrow
   if(x.height === y.height){
     height.classList.add("green-bg-add")
   
   }else if(Math.abs(x.height - y.height) <= 5){
     height.classList.add('yellow-bg-add')
   }
-
-  // if(x.height > y.height) height.innerHTML += downArrow
-  // if(x.height < y.height) height.innerHTML += upArrow
   arrowDirection(x.height, y.height, height)
     }
 
