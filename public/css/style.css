@@ -59,7 +59,7 @@ body{
   .table-container {
     max-height: 450px; /* Set the maximum height for the container */
     overflow-y: auto; /* Add vertical scrollbar if needed */
-    max-width: 1100px;
+    max-width: 1000px;
 
 }
 

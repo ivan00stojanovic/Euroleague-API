@@ -110,7 +110,7 @@ input.addEventListener('keydown', (event) => {
       htmlGenerator(allAnswers[counter], inputedPlayer)
       compareInput(input, playerOTD);
       input.value = '';
-      input.placeholder =  `Guess ${counter} of 6`
+      input.placeholder =  `Guess ${counter+1} of 6`
       
     }
   }
@@ -124,14 +124,14 @@ input.addEventListener('input', () => {
 const htmlGenerator = (tableRow, playerGenerated) => {
   
   tableRow.innerHTML = ` <tr>
-  <td>${playerGenerated.name}</td>
+  <td class="generated-name">${playerGenerated.name}</td>
   <td>
     <div class="generated-team">
       <img width="50px" height="60px" src="${playerGenerated.team[0]}" alt="red star">
       <span class="team-text ">${playerGenerated.team[1]}</span>
     </div>
       </td>
-  <td class="generated-position">${playerGenerated.position.join(' / ')}</td>
+  <td class="generated-position">${playerGenerated.position.join(' - ')}</td>
   <td class="generated-height">${playerGenerated.height}  </td>
   <td class="generated-age">${playerGenerated.age}</td>
   <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
@@ -156,16 +156,15 @@ const highlightSelectedOption = (options) => {
 const compareInput = (inputed, randomPlayerName) => {
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   let currentRow = allAnswers[counter]
-  const testing = currentRow.querySelector('.generated-age')
-  // console.log(currentRow, '<<<<====currentRow')
-  // console.log(testing, '<<<<==== generatedAge from jaje')
 
-  compareAge(inputedPlayer, randomPlayerName, currentRow)
-  compareJersey(inputedPlayer,randomPlayerName,currentRow)
-  compareHeight(inputedPlayer,randomPlayerName,currentRow)
-  comparePosition(inputedPlayer,randomPlayerName,currentRow)
-  compareTeam(inputedPlayer,randomPlayerName,currentRow)
+  // compareAge(inputedPlayer, randomPlayerName, currentRow)
+  // compareJersey(inputedPlayer,randomPlayerName,currentRow)
+  // compareHeight(inputedPlayer,randomPlayerName,currentRow)
+  // comparePosition(inputedPlayer,randomPlayerName,currentRow)
   // compareTeam(inputedPlayer,randomPlayerName,currentRow)
+  // isItCorrect(inputedPlayer,randomPlayerName,currentRow)
+  // compareTeam(inputedPlayer,randomPlayerName,currentRow)
+  compareFuntionsArray.forEach(comparision => comparision(inputedPlayer, randomPlayerName, currentRow))
   if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
     // console.log('Inputs match! Congratulations!');
   } else {
@@ -176,9 +175,10 @@ const compareInput = (inputed, randomPlayerName) => {
 const upArrow = `<span class ="arrow"> &#8593</span>`
 const downArrow = `<span class ="arrow"> &#8595;</span>`
 const arrowDirection = (inputValue, correctValue, data) => {
-  if(inputValue > correctValue) data.innerHTML += downArrow
-  if(inputValue < correctValue) data.innerHTML += upArrow
+  if(inputValue > correctValue) data.innerHTML += /* `<br>` + */  downArrow
+  if(inputValue < correctValue) data.innerHTML += /* `<br>` + */  upArrow
 }
+
 
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
@@ -197,7 +197,6 @@ const compareJersey = (x, y, tdJersey) => {
   }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 5){
     jerseyNumber.classList.add('yellow-bg-add')
   }
-  
   arrowDirection(x.jerseyNumber, y.jerseyNumber, jerseyNumber)
 }
 
@@ -231,9 +230,17 @@ const compareTeam = (x, y, tdTeam) => {
   }else if(x.team[1] !== y.team[1] && x.team.includes(y.team[1])){
     team.classList.add('yellow-bg-add')
   }
-
 }
 
+const isItCorrect = (x, y, tdName) => {
+  const name = tdName.querySelector('.generated-name')
+  if(x.name === y.name){ 
+    name.classList.add('green-bg-add')
+    
+  }
+}
+
+const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
 
 
 
