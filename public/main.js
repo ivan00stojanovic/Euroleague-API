@@ -20,6 +20,7 @@ const instructions = document.querySelector('.instructions')
 // 2. Make the autocomplete go over the result table, not break the box model
 // 3. Make the table a fix width, so that longer names don't widen it
 // 4. Play around with the UI, help the user if they're close to an answer(age/height ~ 2, ex club, etc. )
+// 5. Add up down arrows for the user for help
 
 
 
@@ -131,7 +132,7 @@ const htmlGenerator = (tableRow, playerGenerated) => {
     </div>
       </td>
   <td class="generated-position">${playerGenerated.position.join(' / ')}</td>
-  <td class="generated-height">${playerGenerated.height}</td>
+  <td class="generated-height">${playerGenerated.height}  </td>
   <td class="generated-age">${playerGenerated.age}</td>
   <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
   </tr>`
@@ -172,6 +173,9 @@ const compareInput = (inputed, randomPlayerName) => {
   }
 };
 
+const upArrow = `<span class ="arrow"> &#8593</span>`
+const downArrow = `<span class ="arrow"> &#8595;</span>`
+
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
   if(x.age === y.age){
@@ -179,6 +183,9 @@ const compareAge = (x, y, tdAge) => {
   }else if(Math.abs(x.age - y.age) <= 5){
     age.classList.add('yellow-bg-add')
   }
+
+  if(x.age > y.age) age.innerHTML += downArrow
+  if(x.age < y.age) age.innerHTML += upArrow
 }
 
 const compareJersey = (x, y, tdJersey) => {
@@ -188,16 +195,24 @@ const compareJersey = (x, y, tdJersey) => {
   }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 5){
     jerseyNumber.classList.add('yellow-bg-add')
   }
+
+  if(x.jerseyNumber > y.jerseyNumber) jerseyNumber.innerHTML += downArrow
+  if(x.jerseyNumber < y.jerseyNumber) jerseyNumber.innerHTML += upArrow
 }
 
 const compareHeight = (x, y, tdHeight) => {
   const height = tdHeight.querySelector('.generated-height')
+  // height.innerHTML += x.height > y.height ? downArrow : upArrow
   if(x.height === y.height){
     height.classList.add("green-bg-add")
+  
   }else if(Math.abs(x.height - y.height) <= 5){
     height.classList.add('yellow-bg-add')
   }
-}
+
+  if(x.height > y.height) height.innerHTML += downArrow
+  if(x.height < y.height) height.innerHTML += upArrow
+    }
 
 const comparePosition = (x, y, tdPosition) => {
   const position = tdPosition.querySelector('.generated-position')

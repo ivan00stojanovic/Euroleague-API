@@ -74,6 +74,7 @@ table {
 table td {
     /* padding: 0.5rem 0; */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset; 
+    font-size: 1.2rem;
 }
 
 table td .generated-team {
@@ -89,7 +90,11 @@ table td .generated-team {
     background-color: green;
     color: white;
 }
-
+.arrow{
+    /* color: black; */
+    font-size: 1.8rem;
+    /* content: "\2191"; */
+}
 
 table td img {
     display: block; /* Ensure the image is a block-level element */
