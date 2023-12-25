@@ -175,6 +175,10 @@ const compareInput = (inputed, randomPlayerName) => {
 
 const upArrow = `<span class ="arrow"> &#8593</span>`
 const downArrow = `<span class ="arrow"> &#8595;</span>`
+const arrowDirection = (inputValue, correctValue, data) => {
+  if(inputValue > correctValue) data.innerHTML += downArrow
+  if(inputValue < correctValue) data.innerHTML += upArrow
+}
 
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
@@ -184,8 +188,8 @@ const compareAge = (x, y, tdAge) => {
     age.classList.add('yellow-bg-add')
   }
 
-  if(x.age > y.age) age.innerHTML += downArrow
-  if(x.age < y.age) age.innerHTML += upArrow
+  // if(x.age > y.age) age.innerHTML += downArrow
+  arrowDirection(x.age, y.age, age)
 }
 
 const compareJersey = (x, y, tdJersey) => {
@@ -196,8 +200,9 @@ const compareJersey = (x, y, tdJersey) => {
     jerseyNumber.classList.add('yellow-bg-add')
   }
 
-  if(x.jerseyNumber > y.jerseyNumber) jerseyNumber.innerHTML += downArrow
-  if(x.jerseyNumber < y.jerseyNumber) jerseyNumber.innerHTML += upArrow
+  // if(x.jerseyNumber > y.jerseyNumber) jerseyNumber.innerHTML += downArrow
+  // if(x.jerseyNumber < y.jerseyNumber) jerseyNumber.innerHTML += upArrow
+  arrowDirection(x.jerseyNumber, y.jerseyNumber, jerseyNumber)
 }
 
 const compareHeight = (x, y, tdHeight) => {
@@ -210,8 +215,9 @@ const compareHeight = (x, y, tdHeight) => {
     height.classList.add('yellow-bg-add')
   }
 
-  if(x.height > y.height) height.innerHTML += downArrow
-  if(x.height < y.height) height.innerHTML += upArrow
+  // if(x.height > y.height) height.innerHTML += downArrow
+  // if(x.height < y.height) height.innerHTML += upArrow
+  arrowDirection(x.height, y.height, height)
     }
 
 const comparePosition = (x, y, tdPosition) => {
