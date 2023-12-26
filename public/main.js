@@ -20,7 +20,8 @@ const instructions = document.querySelector('.instructions')
 // 2. Make the autocomplete go over the result table, not break the box model
 // 3. Make the table a fix width, so that longer names don't widen it
 // 4. Play around with the UI, help the user if they're close to an answer(age/height ~ 2, ex club, etc. )
-// 5. Add up down arrows for the user for help
+// 5. Add up down arrows for the user for help DONE
+// 6. Might redesign the input
 
 
 
@@ -136,11 +137,6 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   <td class="generated-age">${playerGenerated.age}</td>
   <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
   </tr>`
-
-  const generatedAge = tableRow.querySelector('.generated-age')
-  // console.log(tableRow, '<<<<====tableRow')
-  // console.log(generatedAge,'<<<<==== generatedAge from tableRow')
-  // generatedAge.classList.add('close-yellow-bg')
 }
 
 const highlightSelectedOption = (options) => {
@@ -175,8 +171,8 @@ const compareInput = (inputed, randomPlayerName) => {
 const upArrow = `<span class ="arrow"> &#8593</span>`
 const downArrow = `<span class ="arrow"> &#8595;</span>`
 const arrowDirection = (inputValue, correctValue, data) => {
-  if(inputValue > correctValue) data.innerHTML += /* `<br>` + */  downArrow
-  if(inputValue < correctValue) data.innerHTML += /* `<br>` + */  upArrow
+  if(inputValue > correctValue) data.innerHTML += /* `<br>` + */   downArrow
+  if(inputValue < correctValue) data.innerHTML += /* `<br>` + */   upArrow
 }
 
 
@@ -236,7 +232,7 @@ const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name === y.name){ 
     name.classList.add('green-bg-add')
-    
+
   }
 }
 
