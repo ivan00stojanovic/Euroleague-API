@@ -3,7 +3,6 @@ let teamLogos = ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena
                  'https://upload.wikimedia.org/wikipedia/en/d/de/KK_Partizan_Logo.PNG']
 
 
-
 let playersData = [
     {
     "name": "Nemanja Nedovic",
