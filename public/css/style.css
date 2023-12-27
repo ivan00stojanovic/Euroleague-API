@@ -11,21 +11,120 @@ body{
     color: black;
 }
 
-.container{
-    width: 35rem;
-    position: relative;
-    /* border: 2px solid red; */
+/* Add these styles to your existing CSS */
+
+ header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 ;
 }
 
-.autocomplete-input{
+nav{
+    /* background-color: orange; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 3rem; 
+    padding-top: 1rem;  
+    margin-right: 2rem;
+    /* background-color: blue; */
+} 
+
+ nav li {
+    /* margin-right: 1rem; */
+    margin: 0rem 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+h1{
+    color: black;
+    margin-bottom: 2.5rem;
+}
+
+h1::first-letter{
+    color: orange;
+    font-size: 2.5rem;
+}
+
+.autocomplete-input {
     padding: 1rem;
-    width: calc(100% - 30px);
-    border-radius: 5px;
+    width: 500px;
     color: orange;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 2rem;
+    border: 1px solid black;
+    /* margin-right: 35rem;
+    margin-top: 10rem; */
+    /* outline: 1px solid black; */
 }
+.autocomplete-input:focus{
+    border-color: black;
+    outline: 0;
+}
+
+.autocomplete-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+    /* margin-left: 35rem; */
+    /* margin-top: 10rem; */
+    max-height: 200px;
+    overflow-y: hidden;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid black;
+    box-sizing: border-box;
+    /* margin-top: 5px; */
+}
+/* .container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Set a background color if needed */
+    /* z-index: 100; Ensure the header is above other content 
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+}
+*/
+
+/*
+1. Make tables generate top to bottom
+2. make footer
+3. media queries :|||||||
+*/kk
+
+.content{
+    margin-top: 20px;
+}
+
+.autocomplete-list li {
+    color: black;
+    padding: 14px;
+    cursor: pointer;
+    background-color: white;
+}
+
+
 
 .autocomplete-input::placeholder{
     color: orange;
@@ -36,34 +135,16 @@ body{
     background-color: orange;
 }
 
-.autocomplete-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: hidden;
-    position: absolute;  /* Use 'fixed' if you want it to stay fixed on the screen */
-    z-index: 1;         /* Set a higher z-index to overlay other elements */
-}
-
-.autocomplete-list li {
-    color: black;
-    padding: 15px;
-    width: calc(100% - 30px);
-    cursor: pointer;
-    background-color: white;
-}
-
 #players-list {
     display: none;
-  }
+}
 
-  .table-container {
+.table-container {
     max-height: 450px; /* Set the maximum height for the container */
     overflow-y: auto; /* Add vertical scrollbar if needed */
     max-width: 1000px;
-
+    margin: 0 auto;
+    
 }
 
 /* Center text within all table cells and add slight border */
@@ -85,6 +166,7 @@ table td {
 table td .generated-team {
     /* border: none;    */
     padding: 0.5rem;
+    outline: none;
 }
 
 .yellow-bg-add{
