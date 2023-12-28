@@ -111,10 +111,18 @@ h1::first-letter{
 1. Make tables generate top to bottom
 2. make footer
 3. media queries :|||||||
-*/kk
+*/
 
-.content{
-    margin-top: 20px;
+.content {
+    margin-top: 100px; /* Adjust this margin to ensure content is below the fixed header */
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 1rem; /* Add margin at the top to separate from the input */
 }
 
 .autocomplete-list li {
@@ -139,12 +147,8 @@ h1::first-letter{
     display: none;
 }
 
-.table-container {
-    max-height: 450px; /* Set the maximum height for the container */
-    overflow-y: auto; /* Add vertical scrollbar if needed */
-    max-width: 1000px;
-    margin: 0 auto;
-    
+.visibility {
+    visibility: hidden;
 }
 
 /* Center text within all table cells and add slight border */

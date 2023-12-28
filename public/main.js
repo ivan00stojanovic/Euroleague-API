@@ -14,6 +14,7 @@ const answer5 = document.querySelector('.answer-5')
 const answer6 = document.querySelector('.answer-6')
 const allAnswers = ['filler', answer1, answer2, answer3, answer4, answer5, answer6]
 const instructions = document.querySelector('.instructions')
+const answerContainer = document.querySelector('.table-containter')
 
 // TODO
 // 1. Make li options clickable
@@ -112,7 +113,6 @@ input.addEventListener('keydown', (event) => {
       compareInput(input, playerOTD);
       input.value = '';
       input.placeholder =  `Guess ${counter+1} of 6`
-      
     }
   }
 });
@@ -137,6 +137,8 @@ const htmlGenerator = (tableRow, playerGenerated) => {
   <td class="generated-age">${playerGenerated.age}</td>
   <td class="generated-jersey-number">${playerGenerated.jerseyNumber}</td>
   </tr>`
+  tableRow.classList.remove('visibility')
+  
 }
 
 const highlightSelectedOption = (options) => {
@@ -166,6 +168,7 @@ const compareInput = (inputed, randomPlayerName) => {
   } else {
     // console.log('Inputs do not match. Keep trying!');
   }
+  
 };
 
 const upArrow = `<span class ="arrow"> &#8593</span>`
