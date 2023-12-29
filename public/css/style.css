@@ -132,12 +132,9 @@ h1::first-letter{
     background-color: white;
 }
 
-
-
 .autocomplete-input::placeholder{
     color: orange;
 }
-
 
 #players-list li.selected {
     background-color: orange;
@@ -165,6 +162,12 @@ table td {
     font-size: 1.2rem;
     /* background-color: rgb(243, 238, 238); */
     background-color: whitesmoke;
+    opacity: 0;
+    transition:  0.5s ease-in;
+}
+
+.visible{
+    opacity: 1;
 }
 
 table td .generated-team {

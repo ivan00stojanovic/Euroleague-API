@@ -14,7 +14,7 @@ const answer5 = document.querySelector('.answer-5')
 const answer6 = document.querySelector('.answer-6')
 const allAnswers = ['filler', answer1, answer2, answer3, answer4, answer5, answer6]
 const instructions = document.querySelector('.instructions')
-const answerContainer = document.querySelector('.table-containter')
+const answerContainer = document.querySelector('.table-container')
 
 // TODO
 // 1. Make li options clickable
@@ -113,6 +113,7 @@ input.addEventListener('keydown', (event) => {
       compareInput(input, playerOTD);
       input.value = '';
       input.placeholder =  `Guess ${counter+1} of 6`
+      answerContainer.scrollTop = answerContainer.scrollHeight
     }
   }
 });
@@ -187,6 +188,10 @@ const compareAge = (x, y, tdAge) => {
     age.classList.add('yellow-bg-add')
   }
   arrowDirection(x.age, y.age, age)
+  age.classList.remove('visible'); // reset animation
+  void age.offsetWidth; // trigger reflow
+  age.classList.add('visible'); // start animation
+
 }
 
 const compareJersey = (x, y, tdJersey) => {
