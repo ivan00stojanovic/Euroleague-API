@@ -61,6 +61,16 @@ const filterData = (data, searchText) => {
   return  data.filter(player => typeof player === 'string' && player.toLowerCase().includes(searchText.toLowerCase()));
  }
 
+ playersListElement.addEventListener('click', (event) => {
+  const clickedItem = event.target;
+  if (clickedItem.tagName === 'LI') {
+      input.value = clickedItem.textContent;
+      playersListElement.style.display = 'none';
+      input.focus(); // Keep focus on the input for a better user experience
+  }
+});
+
+
 input.addEventListener('input', () => {
   const searchText = input.value.trim();
   if (searchText.length === 0) {

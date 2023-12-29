@@ -113,16 +113,22 @@ h1::first-letter{
 3. media queries :|||||||
 */
 
-.content {
-    margin-top: 100px; /* Adjust this margin to ensure content is below the fixed header */
+
+
+.table-container, .instructions-container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .table-container {
-    max-height: 400px;
-    overflow-y: auto;
-    max-width: 1000px;
-    margin: 0 auto;
-    margin-top: 1rem; /* Add margin at the top to separate from the input */
+    max-height: 344px;
+    overflow-y: auto; 
+}
+
+.instructions-container {
+    max-height: 340px;
+    overflow-y: auto; 
+    margin-top: 150px;
 }
 
 .autocomplete-list li {
@@ -162,7 +168,7 @@ table td {
     font-size: 1.2rem;
     /* background-color: rgb(243, 238, 238); */
     background-color: whitesmoke;
-    opacity: 0;
+    opacity: 1;
     transition:  0.5s ease-in;
 }
 
