@@ -138,11 +138,13 @@ h1::first-letter{
     background-color: white;
 }
 
+
+
 .autocomplete-input::placeholder{
     color: orange;
 }
 
-#players-list li.selected {
+#players-list li.selected, #players-list li:hover {
     background-color: orange;
 }
 

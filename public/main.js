@@ -67,6 +67,14 @@ const filterData = (data, searchText) => {
       input.value = clickedItem.textContent;
       playersListElement.style.display = 'none';
       input.focus(); // Keep focus on the input for a better user experience
+      const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value);
+      instructions.removeAttribute('id', 'player-list');
+      counter++;
+      htmlGenerator(allAnswers[counter], inputedPlayer);
+      compareInput(input, playerOTD);
+      input.value = '';
+      input.placeholder = `Guess ${counter + 1} of 6`;
+      answerContainer.scrollTop = answerContainer.scrollHeight;
   }
 });
 
@@ -82,39 +90,41 @@ input.addEventListener('input', () => {
   }
 });
 
+// let isKeyboardNavigation = false;
 
 input.addEventListener('keydown', (event) => {
   const searchText = input.value.trim();
   const options = playersListElement.querySelectorAll('li');
   const visibleOptions = Array.from(options).slice(0, 4);
 
-  if (event.key === 'ArrowDown') {
-    event.preventDefault();
-    if (selectedOptionIndex < visibleOptions.length - 1) {
-      selectedOptionIndex += 1;
-    } else {
-      selectedOptionIndex = 0; // Loop back to the first option
-    }
-    highlightSelectedOption(visibleOptions);
-    input.value = visibleOptions[selectedOptionIndex].textContent;
-  } else if (event.key === 'ArrowUp') {
-    event.preventDefault();
-    if (selectedOptionIndex > 0) {
-      selectedOptionIndex -= 1;
-    } else {
-      selectedOptionIndex = visibleOptions.length - 1; // Loop back to the last option
-    }
-    highlightSelectedOption(visibleOptions);
-    input.value = visibleOptions[selectedOptionIndex].textContent;
+  // Check if input is empty before handling arrow key events
+  if (searchText.length > 0) {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (selectedOptionIndex < visibleOptions.length - 1) {
+        selectedOptionIndex += 1;
+      } else {
+        selectedOptionIndex = 0; // Loop back to the first option
+      }
+      highlightSelectedOption(visibleOptions);
+      input.value = visibleOptions[selectedOptionIndex].textContent;
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (selectedOptionIndex > 0) {
+        selectedOptionIndex -= 1;
+      } else {
+        selectedOptionIndex = visibleOptions.length - 1; // Loop back to the last option
+      }
+      highlightSelectedOption(visibleOptions);
+      input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
     const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
-    console.log(inputedPlayer)
-    // console.log(kkczv)
-    // console.log(allPlayersArray)
-    // console.log(test)
-    event.preventDefault();
+    // if(inputedPlayer || allPlayersArray.includes(input.value)){
+    // console.log(inputedPlayer)
+    // event.preventDefault();
     instructions.removeAttribute('id', 'player-list')
-    if (selectedOptionIndex !== -1) {
+    if (selectedOptionIndex !== -1 || inputedPlayer)  {
+      console.log(inputedPlayer)
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
@@ -125,6 +135,16 @@ input.addEventListener('keydown', (event) => {
       input.placeholder =  `Guess ${counter+1} of 6`
       answerContainer.scrollTop = answerContainer.scrollHeight
     }
+  // } 
+  }
+  // Add event listener for mouseover on options
+options.forEach((option, index) => {
+  option.addEventListener('mouseover', () => {
+    selectedOptionIndex = index;
+    highlightSelectedOption(visibleOptions);
+    input.value = visibleOptions[selectedOptionIndex].textContent;
+  });
+});
   }
 });
 
