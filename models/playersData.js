@@ -135,7 +135,7 @@ let playersData = [
     {
     "name": "Nikola Topic",
     "team": [teamLogos[0], 'CZV'],
-    "position": ["G", "G"],
+    "position": ["G"],
     "height": 195,
     "age": 18,
     "jerseyNumber": 44

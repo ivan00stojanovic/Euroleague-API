@@ -164,32 +164,29 @@ table {
     table-layout: fixed;
 }
 
-table td {
-    /* padding: 0.5rem 0; */
+table td{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset; 
+    color: rgb(73, 73, 73);
     font-size: 1.2rem;
-    /* background-color: rgb(243, 238, 238); */
-    background-color: whitesmoke;
-    opacity: 1;
-    transition:  0.5s ease-in;
+    background-color: rgb(236, 236, 236);
+    /* transition:  0.35s ease-in; */
 }
 
-.visible{
-    opacity: 1;
-}
-
-table td .generated-team {
-    /* border: none;    */
+table td > .generated-team {
+    /* background-color: orange; */
     padding: 0.5rem;
-    outline: none;
+    opacity: 1;
 }
 
 .yellow-bg-add{
     background-color: yellow;
+    color: black;
+    transition: background-color 0.40s ease-in, color 0.40s ease-in;
 }
 
 .green-bg-add{
     background-color: green;
+    transition: background-color 0.30s ease-in, color 0.25s ease-in;
     color: white;
 }
 .arrow{

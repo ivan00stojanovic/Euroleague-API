@@ -209,69 +209,87 @@ const arrowDirection = (inputValue, correctValue, data) => {
   if(inputValue < correctValue) data.innerHTML += /* `<br>` + */   upArrow
 }
 
+// const appearanceAnimation = (td) => {
+//   td.classList.remove('visible'); // reset animation
+//   void td.offsetWidth; // trigger reflow
+//   td.classList.add('visible'); // start animation
+// }
+
+const animateGreen = (td) => {
+  td.classList.remove('green-bg-add'); // reset animation
+  void td.offsetWidth; // trigger reflow
+  td.classList.add('green-bg-add'); // start animation
+}
+
+const animateYellow = (td) => {
+  td.classList.remove('yellow-bg-add'); // reset animation
+  void td.offsetWidth; // trigger reflow
+  td.classList.add('yellow-bg-add'); // start animation
+}
 
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
   if(x.age === y.age){
-    age.classList.add("green-bg-add")
-  }else if(Math.abs(x.age - y.age) <= 5){
-    age.classList.add('yellow-bg-add')
+   animateGreen(age)
+  }else if(Math.abs(x.age - y.age) <= 2){
+    animateYellow(age)
   }
   arrowDirection(x.age, y.age, age)
-  age.classList.remove('visible'); // reset animation
-  void age.offsetWidth; // trigger reflow
-  age.classList.add('visible'); // start animation
 
 }
 
 const compareJersey = (x, y, tdJersey) => {
   const jerseyNumber = tdJersey.querySelector('.generated-jersey-number')
   if(x.jerseyNumber === y.jerseyNumber){
-    jerseyNumber.classList.add("green-bg-add")
-  }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 5){
-    jerseyNumber.classList.add('yellow-bg-add')
+    animateGreen(jerseyNumber)
+  }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 2){
+    animateYellow(jerseyNumber)
   }
   arrowDirection(x.jerseyNumber, y.jerseyNumber, jerseyNumber)
+  // appearanceAnimation(jerseyNumber)
 }
 
 const compareHeight = (x, y, tdHeight) => {
   const height = tdHeight.querySelector('.generated-height')
   if(x.height === y.height){
-    height.classList.add("green-bg-add")
-  
+    animateGreen(height)
   }else if(Math.abs(x.height - y.height) <= 5){
-    height.classList.add('yellow-bg-add')
+    animateYellow(height)
   }
   arrowDirection(x.height, y.height, height)
-    }
+  // appearanceAnimation(height)    
+}
+
 
 const comparePosition = (x, y, tdPosition) => {
   const position = tdPosition.querySelector('.generated-position')
   const commonPositions = y.position.filter(playerPosition => x.position.includes(playerPosition))
   
   if(commonPositions.length === y.position.length && commonPositions.length == x.position.length){
-    position.classList.add("green-bg-add")
+    animateGreen(position)
   }else if(commonPositions.length > 0){
-    position.classList.add('yellow-bg-add')
+    animateYellow(position)
   }
   console.log(x.position, y.position)
+  // appearanceAnimation(position)
 }
 
 const compareTeam = (x, y, tdTeam) => {
   const team = tdTeam.querySelector('.generated-team')
   if(x.team[1] === y.team[1]){ 
-    team.classList.add('green-bg-add')
+    animateGreen(team)
   }else if(x.team[1] !== y.team[1] && x.team.includes(y.team[1])){
-    team.classList.add('yellow-bg-add')
+    animateYellow(team)
+    // appearanceAnimation(team)
   }
 }
 
 const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name === y.name){ 
-    name.classList.add('green-bg-add')
-
+    animateGreen(name)
   }
+  // appearanceAnimation(name)
 }
 
 const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
