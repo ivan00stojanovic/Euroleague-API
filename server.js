@@ -38,27 +38,27 @@ const pushPlayers = async () => {
 
 // pushPlayers()
 
-// async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
-//   try {
-//     // Retrieve the player from the database
-//     const player = await Player.findById(playerId);
+async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
+  try {
+    // Retrieve the player from the database
+    const player = await Player.findById(playerId);
 
-//     if (!player) {
-//       console.log('Player not found');
-//       return;
-//     }
+    if (!player) {
+      console.log('Player not found');
+      return;
+    }
 
-//     // Modify the "team" array
-//     player.team = [newImageUrl, newTeamName];
+    // Modify the "team" array
+    player.team = [newImageUrl, newTeamName];
 
-//     // Save the updated document back to the database
-//     const updatedPlayer = await player.save();
+    // Save the updated document back to the database
+    const updatedPlayer = await player.save();
 
-//     console.log('Player updated successfully:', updatedPlayer);
-//   } catch (error) {
-//     console.error('Error updating player:', error);
-//   }
-// }
+    console.log('Player updated successfully:', updatedPlayer);
+  } catch (error) {
+    console.error('Error updating player:', error);
+  }
+}
 
 // Example usage
 // updatePlayerTeam('64b573b874ffb47eeb8a8db9', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png', 'RMB');
