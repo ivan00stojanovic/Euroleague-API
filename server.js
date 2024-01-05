@@ -50,7 +50,7 @@ app.use('/api', teamRoute)
 app.use('/api', singlePlayerRoute);
 
   
-const PORT = process.env.PORT  || 1991;
+const PORT = process.env.PORT || 1991;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}, Hell Yea`);
