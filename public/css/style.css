@@ -24,7 +24,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 ;
+    padding: 0;
 }
 
 nav{
@@ -44,11 +44,16 @@ nav ul {
 } 
 
  nav li {
-    /* margin-right: 1rem; */
     margin: 0rem 10rem;
 }
 
+
+nav a:hover {
+    color: orange;
+}
+
 nav a {
+    transition: 0.25s ease-out;
     text-decoration: none;
     color: #333;
     font-weight: bold;
