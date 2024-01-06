@@ -1,6 +1,6 @@
 const input = document.getElementById('player-input');
 const playersListElement = document.getElementById('players-list');
-let kkczv = [];
+let fetchArray = [];
 let allPlayersArray = []
 // let randomOne = null;
 let playerOTD = null;
@@ -29,14 +29,14 @@ const answerContainer = document.querySelector('.table-container')
 const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/getInfo');
   const data = await response.json();
-  kkczv = data.map((players) => players.name);
+  fetchArray = data.map((players) => players.name);
   allPlayersArray = data
   // console.log(allPlayersArray[0].jerseyNumber)
-  // kkczv = data
+  // fetchArray = data
   // randomOne = data[Math.floor(Math.random() * data.length)];
   playerOTD = getPlayerOTD(data)
   console.log(playerOTD)
-  loadData(kkczv, playersListElement);
+  loadData(fetchArray, playersListElement);
 };
 
 const getPlayerOTD = (data) => {
@@ -75,6 +75,7 @@ const filterData = (data, searchText) => {
       input.value = '';
       input.placeholder = `Guess ${counter + 1} of 6`;
       answerContainer.scrollTop = answerContainer.scrollHeight;
+      // if(counter > 7)
   }
 });
 
@@ -84,7 +85,7 @@ input.addEventListener('input', () => {
   if (searchText.length === 0) {
     playersListElement.style.display = 'none'; // Hide autocomplete list
   } else {
-    const filteredData = filterData(kkczv, searchText);
+    const filteredData = filterData(fetchArray, searchText);
     loadData(filteredData, playersListElement);
     playersListElement.style.display = 'block'; // Show autocomplete list
   }
@@ -209,11 +210,6 @@ const arrowDirection = (inputValue, correctValue, data) => {
   if(inputValue < correctValue) data.innerHTML += /* `<br>` + */   upArrow
 }
 
-// const appearanceAnimation = (td) => {
-//   td.classList.remove('visible'); // reset animation
-//   void td.offsetWidth; // trigger reflow
-//   td.classList.add('visible'); // start animation
-// }
 
 const animateGreen = (td) => {
   td.classList.remove('green-bg-add'); // reset animation
@@ -278,42 +274,29 @@ const compareTeam = (x, y, tdTeam) => {
   const team = tdTeam.querySelector('.generated-team')
   if(x.team[1] === y.team[1]){ 
     animateGreen(team)
-  }else if(x.team[1] !== y.team[1] && x.team.includes(y.team[1])){
+  }else if(x.team[1] !== y.team[1] && y.team.includes(x.team[1])){
     animateYellow(team)
     // appearanceAnimation(team)
   }
 }
 
+const winnerDeclaration = document.getElementById('winner-declaration')
+const winnerText = document.getElementById('winner-text')
+const restartBtn = document.getElementById('restart-after-win')
+const test = document.querySelector('.body') 
+
 const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name === y.name){ 
     animateGreen(name)
+    test.classList.add('blurry')
+    input.disabled = true
+    // winnerDeclaration.classList.toggle('show-winner')
   }
   // appearanceAnimation(name)
 }
 
 const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
-
-
-
-// const yesirq = () => {
-//   return console.log('probno 2')
-// }
-
-
-// const yesirw = () => {
-//   return console.log('probno 2')
-// }
-
-// const yesire = () => {
-//   return console.log('probno 3')
-// }
-
-// let rrr = [yesirq, yesirw, yesire]
-
-// rrr.forEach(x => x())
-
-
 
 
 // Fetch players when the page loads

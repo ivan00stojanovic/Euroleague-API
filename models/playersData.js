@@ -263,6 +263,7 @@ let playersData = [
      
     ]
 
-module.exports = playersData
+    let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)
+module.exports = shuffledArray
 
 
