@@ -263,7 +263,21 @@ let playersData = [
      
     ]
 
+    class Player {
+        constructor(name, team, position, height, age, jerseyNumber) {
+            this.name = name;
+            this.team = team;
+            this.position = position;
+            this.height = height;
+            this.age = age;
+            this.jerseyNumber = jerseyNumber;
+        }
+    }
+
+    let test1 = new Player('Sergio Llull', teamLogos[1], ['G'], '191', '36', '23')
+    playersData.push(test1)
+
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)
-module.exports = shuffledArray
+module.exports = playersData
 
 

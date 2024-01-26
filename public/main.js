@@ -39,6 +39,7 @@ const fetchPlayers = async () => {
   loadData(fetchArray, playersListElement);
 };
 
+
 const getPlayerOTD = (data) => {
   const winningPlayer = data[Math.floor(Math.random() * data.length)]
   // console.log(winningPlayer)

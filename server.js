@@ -6,6 +6,7 @@ const cors = require('cors');
 const Player = require('./models/playerModel');
 const playersData = require('./models/playersData');
 const path = require('path');
+// console.log(playersData[playersData.length - 1])
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -37,6 +38,33 @@ const pushPlayers = async () => {
 };
 
 // pushPlayers()
+
+const removeNonExisting = async () => {
+  try {
+      const collectionPlayers = await Player.find({});
+      const nonExistingPlayers = [];
+
+      for (let collectionPlayer of collectionPlayers) {
+          const playerExists = playersData.some(dataPlayer => dataPlayer.name === collectionPlayer.name);
+          if (!playerExists) {
+              // console.log(`Player ${collectionPlayer.name} exists in the collection but not in playersData array`);
+              nonExistingPlayers.push(collectionPlayer.name);
+              await Player.deleteOne({name: collectionPlayer.name})
+              
+          }
+      }
+
+      // console.log('Players not in playersData array:', nonExistingPlayers);
+       console.log(nonExistingPlayers)
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+
+// removeNonExisting()
+
+
 
 async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
   try {
