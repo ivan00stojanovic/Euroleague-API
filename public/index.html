@@ -11,15 +11,15 @@
         <header class="container">
             <nav>
                 <ul>
-                    <li><a href="#" onclick="openDialog('homeDialog')">Home</a></li>
-                    <li><a href="#" onclick="openDialog('aboutDialog')">About</a></li>
+                    <li id="homeLink"><a href="#" onclick="openDialog('homeDialog')">Home</a></li>
+                    <li id="aboutLink"><a href="#" onclick="openDialog('aboutDialog')">About</a></li>
                     <!-- Add more items if needed -->
                 </ul>
             </nav>
             <dialog id="homeDialog">
                 <p>Welcome to the Wordle Game! This is the home page.</p>
                 <button onclick="closeDialog('homeDialog')">Close</button>
-              </dialog>
+              </dialog> 
               
               <dialog id="aboutDialog">
                 <p>About the Wordle Game: [Insert information about the game here]</p>

@@ -299,19 +299,20 @@ const isItCorrect = (x, y, tdName) => {
 
 const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
 
-function openDialog(dialogId) {
+window.openDialog = function(dialogId) {
   const dialog = document.getElementById(dialogId);
   if (dialog) {
-    dialog.showModal();
+      dialog.showModal();
   }
 }
 
-function closeDialog(dialogId) {
+window.closeDialog = function(dialogId) {
   const dialog = document.getElementById(dialogId);
   if (dialog) {
-    dialog.close();
+      dialog.close();
   }
 }
+ 
 
 
 // Fetch players when the page loads
