@@ -274,8 +274,8 @@ let playersData = [
         }
     }
 
-    let test1 = new Player('Sergio Llull', teamLogos[1], ['G'], '191', '36', '23')
-    playersData.push(test1)
+    let sergioLlul = new Player('Sergio Llull', [teamLogos[1], 'RMB'], ['G'], '191', '36', '23')
+    playersData.push(sergioLlul)
 
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)
 module.exports = playersData
