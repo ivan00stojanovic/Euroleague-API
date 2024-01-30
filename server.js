@@ -6,7 +6,8 @@ const cors = require('cors');
 const Player = require('./models/playerModel');
 const playersData = require('./models/playersData');
 const path = require('path');
-console.log(playersData[playersData.length - 1])
+console.log(playersData[playersData.length - 1].image)
+
 
 app.use(express.static('public'));
 app.use(express.json());

@@ -226,7 +226,7 @@ const animateYellow = (td) => {
 
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
-  if(x.age === y.age){
+  if(x.age == y.age){
    animateGreen(age)
   }else if(Math.abs(x.age - y.age) <= 2){
     animateYellow(age)
@@ -237,7 +237,7 @@ const compareAge = (x, y, tdAge) => {
 
 const compareJersey = (x, y, tdJersey) => {
   const jerseyNumber = tdJersey.querySelector('.generated-jersey-number')
-  if(x.jerseyNumber === y.jerseyNumber){
+  if(x.jerseyNumber == y.jerseyNumber){
     animateGreen(jerseyNumber)
   }else if(Math.abs(x.jerseyNumber - y.jerseyNumber) <= 2){
     animateYellow(jerseyNumber)
@@ -248,7 +248,7 @@ const compareJersey = (x, y, tdJersey) => {
 
 const compareHeight = (x, y, tdHeight) => {
   const height = tdHeight.querySelector('.generated-height')
-  if(x.height === y.height){
+  if(x.height == y.height){
     animateGreen(height)
   }else if(Math.abs(x.height - y.height) <= 5){
     animateYellow(height)
@@ -262,7 +262,7 @@ const comparePosition = (x, y, tdPosition) => {
   const position = tdPosition.querySelector('.generated-position')
   const commonPositions = y.position.filter(playerPosition => x.position.includes(playerPosition))
   
-  if(commonPositions.length === y.position.length && commonPositions.length == x.position.length){
+  if(commonPositions.length == y.position.length && commonPositions.length == x.position.length){
     animateGreen(position)
   }else if(commonPositions.length > 0){
     animateYellow(position)
@@ -275,7 +275,7 @@ const compareTeam = (x, y, tdTeam) => {
   const team = tdTeam.querySelector('.generated-team')
   if(x.team[1] === y.team[1]){ 
     animateGreen(team)
-  }else if(x.team[1] !== y.team[1] && y.team.includes(x.team[1])){
+  }else if(x.team[1] != y.team[1] && y.team.includes(x.team[1])){
     animateYellow(team)
     // appearanceAnimation(team)
   }
@@ -288,7 +288,7 @@ const test = document.querySelector('.body')
 
 const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
-  if(x.name === y.name){ 
+  if(x.name == y.name){ 
     animateGreen(name)
     test.classList.add('blurry')
     input.disabled = true

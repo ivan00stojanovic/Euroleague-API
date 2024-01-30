@@ -264,7 +264,7 @@ let playersData = [
     ]
 
     class Player {
-        constructor(name, team, position, height, age, jerseyNumber) {
+        constructor(name, team, position, height, age, jerseyNumber,) {
             this.name = name;
             this.team = team;
             this.position = position;
