@@ -264,17 +264,18 @@ let playersData = [
     ]
 
     class Player {
-        constructor(name, team, position, height, age, jerseyNumber,) {
+        constructor(name, team, position, height, age, jerseyNumber,image) {
             this.name = name;
             this.team = team;
             this.position = position;
             this.height = height;
             this.age = age;
             this.jerseyNumber = jerseyNumber;
+            this.image = image;
         }
     }
 
-    let sergioLlul = new Player('Sergio Llull', [teamLogos[1], 'RMB'], ['G'], '191', '36', '23')
+    let sergioLlul = new Player('Sergio Llull', [teamLogos[1], 'RMB'], ['G'], '191', '36', '23', 'https://www.proballers.com/media/cache/torso_player/ul/player/sergio-llull-1ee6847b-56be-60cc-bc1f-016f75567498.jpg')
     playersData.push(sergioLlul)
 
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)

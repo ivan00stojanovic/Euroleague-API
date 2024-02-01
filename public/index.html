@@ -11,27 +11,35 @@
         <header class="container">
             <nav>
                 <ul>
-                    <li id="homeLink"><a href="#" onclick="openDialog('homeDialog')">Home</a></li>
-                    <li id="aboutLink"><a href="#" onclick="openDialog('aboutDialog')">About</a></li>
+                    <li id="howToLink"><a href="#" onclick="openDialog('howToDialog')">How to play</a></li>
+                    <li id="statsLink"><a href="#" onclick="openDialog('statsDialog')">Stats</a></li>
                     <!-- Add more items if needed -->
                 </ul>
             </nav>
-            <dialog id="homeDialog">
+            <dialog id="howToDialog">
                 <div class="dialog-content">
-                    <p>Welcome to the Wordle Game! This is the home page.</p>
-                    <button onclick="closeDialog('homeDialog')">Close</button>
+                    <h2 style="margin-bottom: 3rem;">Welcome to Eurole!</h2>
+                    <p>Your goal is to figure out who the mystery Euroleague player is. Here's a guide to help you:</p>
+                    <ul>
+                        <li>If the column is <span style="background-color: green; color: white; padding: 3px;">green</span>, it matches the mystery player.</li>
+                        <li>If the team column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, the player played for that team in the past.</li>
+                        <li>If the position column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, it indicates a partial match.</li>
+                        <li><span style="background-color: yellow; color: black; padding: 3px;">Yellow in any other column</span> indicates that your age, height or jersey number value is within 2.</li>
+                        <span class="good-wishes">Good Luck and Have Fun :)</span>
+                    </ul>
+                    <button class="close-btn" onclick="closeDialog('howToDialog')">Close</button>
                 </div>
-            </dialog> 
+            </dialog>
             
-            <dialog id="aboutDialog">
+            <dialog id="statsDialog">
                   <div class="dialog-content">
                         <p>About the Wordle Game: [Insert information about the game here]</p>
-                        <button onclick="closeDialog('aboutDialog')">Close</button>
+                        <button class="close-btn" onclick="closeDialog('statsDialog')">Close</button>
                     </div>
               </dialog>
             <h1>Eurole</h1>
             <div class="centered-input">
-                <input type="text" class="autocomplete-input" id="player-input"  
+                <input autocomplete="off" type="text" class="autocomplete-input" id="player-input"  
                 placeholder="Guess 1 of 6">
                 <ul class="autocomplete-list" id="players-list"> </ul>
             </div>

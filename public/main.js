@@ -124,17 +124,18 @@ input.addEventListener('keydown', (event) => {
     // if(inputedPlayer || allPlayersArray.includes(input.value)){
     // console.log(inputedPlayer)
     // event.preventDefault();
-    instructions.removeAttribute('id', 'player-list')
+    // instructions.removeAttribute('id', 'player-list')
     if (selectedOptionIndex !== -1 || inputedPlayer)  {
       console.log(inputedPlayer)
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
       counter++
+      limit(counter)
+      input.placeholder =  `Guess ${counter+1} of 6`
       htmlGenerator(allAnswers[counter], inputedPlayer)
       compareInput(input, playerOTD);
       input.value = '';
-      input.placeholder =  `Guess ${counter+1} of 6`
       answerContainer.scrollTop = answerContainer.scrollHeight
     }
   // } 
@@ -185,23 +186,10 @@ const highlightSelectedOption = (options) => {
 };
 
 const compareInput = (inputed, randomPlayerName) => {
+  instructions.removeAttribute('id', 'player-list') 
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   let currentRow = allAnswers[counter]
-
-  // compareAge(inputedPlayer, randomPlayerName, currentRow)
-  // compareJersey(inputedPlayer,randomPlayerName,currentRow)
-  // compareHeight(inputedPlayer,randomPlayerName,currentRow)
-  // comparePosition(inputedPlayer,randomPlayerName,currentRow)
-  // compareTeam(inputedPlayer,randomPlayerName,currentRow)
-  // isItCorrect(inputedPlayer,randomPlayerName,currentRow)
-  // compareTeam(inputedPlayer,randomPlayerName,currentRow)
   compareFuntionsArray.forEach(comparision => comparision(inputedPlayer, randomPlayerName, currentRow))
-  if (inputed.value.toLowerCase() === randomPlayerName.name.toLowerCase()) {
-    // console.log('Inputs match! Congratulations!');
-  } else {
-    // console.log('Inputs do not match. Keep trying!');
-  }
-  
 };
 
 const upArrow = `<span class ="arrow"> &#8593</span>`
@@ -290,11 +278,16 @@ const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name == y.name){ 
     animateGreen(name)
-    test.classList.add('blurry')
+    // test.classList.add('blurry')
     input.disabled = true
+    input.placeholder = 'You guessed right!'
     // winnerDeclaration.classList.toggle('show-winner')
   }
   // appearanceAnimation(name)
+}
+
+const limit = (brojac) => {
+  if(brojac >= 6) console.log('gotovo')
 }
 
 const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
