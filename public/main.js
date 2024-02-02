@@ -45,7 +45,21 @@ const getPlayerOTD = (data) => {
   // console.log(winningPlayer)
   return winningPlayer
 }
+const showUp = document.getElementById('exceededAttemptsDialog')
 
+const limit = (brojac) => {
+  // console.log('Limit function called with counter:', brojac);
+
+  if (brojac === 6) {
+    window.openDialog('exceededAttemptsDialog');
+    console.log('Counter exceeds 6. Opening modal...');
+    input.placeholder = `You'll get it next time`;
+    input.disabled = true;
+  }
+  
+};
+
+// test.classList.add('blurry')
 
 const loadData = (data, element) => {
   if (data) {
@@ -58,25 +72,27 @@ const loadData = (data, element) => {
   }
 };
 
+
 const filterData = (data, searchText) => {
   return  data.filter(player => typeof player === 'string' && player.toLowerCase().includes(searchText.toLowerCase()));
  }
 
  playersListElement.addEventListener('click', (event) => {
-  const clickedItem = event.target;
-  if (clickedItem.tagName === 'LI') {
-      input.value = clickedItem.textContent;
-      playersListElement.style.display = 'none';
-      input.focus(); // Keep focus on the input for a better user experience
-      const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value);
-      instructions.removeAttribute('id', 'player-list');
-      counter++;
-      htmlGenerator(allAnswers[counter], inputedPlayer);
+   const clickedItem = event.target;
+   if (clickedItem.tagName === 'LI') {
+     input.value = clickedItem.textContent;
+     playersListElement.style.display = 'none';
+     input.focus(); // Keep focus on the input for a better user experience
+     const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value);
+     instructions.removeAttribute('id', 'player-list');
+     counter++;
+    //  window.openDialog('exceededAttemptsDialog')
+      input.placeholder =  `Guess ${counter+1} of 6`;
+      limit(counter)
+      htmlGenerator(allAnswers[counter], inputedPlayer)
       compareInput(input, playerOTD);
       input.value = '';
-      input.placeholder = `Guess ${counter + 1} of 6`;
       answerContainer.scrollTop = answerContainer.scrollHeight;
-      // if(counter > 7)
   }
 });
 
@@ -121,25 +137,22 @@ input.addEventListener('keydown', (event) => {
       input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
     const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
-    // if(inputedPlayer || allPlayersArray.includes(input.value)){
-    // console.log(inputedPlayer)
-    // event.preventDefault();
-    // instructions.removeAttribute('id', 'player-list')
     if (selectedOptionIndex !== -1 || inputedPlayer)  {
-      console.log(inputedPlayer)
       input.value = visibleOptions[selectedOptionIndex].textContent;
       selectedOptionIndex = -1;
       playersListElement.style.display = 'none';
       counter++
       limit(counter)
+      console.log('Current counter num is =>', counter)
       input.placeholder =  `Guess ${counter+1} of 6`
       htmlGenerator(allAnswers[counter], inputedPlayer)
       compareInput(input, playerOTD);
       input.value = '';
       answerContainer.scrollTop = answerContainer.scrollHeight
+      window.openDialog('exceededAttemptsDialog')
     }
-  // } 
   }
+
   // Add event listener for mouseover on options
 options.forEach((option, index) => {
   option.addEventListener('mouseover', () => {
@@ -269,9 +282,7 @@ const compareTeam = (x, y, tdTeam) => {
   }
 }
 
-const winnerDeclaration = document.getElementById('winner-declaration')
-const winnerText = document.getElementById('winner-text')
-const restartBtn = document.getElementById('restart-after-win')
+
 const test = document.querySelector('.body') 
 
 const isItCorrect = (x, y, tdName) => {
@@ -286,9 +297,7 @@ const isItCorrect = (x, y, tdName) => {
   // appearanceAnimation(name)
 }
 
-const limit = (brojac) => {
-  if(brojac >= 6) console.log('gotovo')
-}
+
 
 const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
 

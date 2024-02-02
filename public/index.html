@@ -112,15 +112,28 @@
             </table>
         </div>
     </div>
+    <dialog id="correctAnswerDialog">
+        <div class="dialog-content">
+            <h2>Congratulations!</h2>
+            <p>You've correctly identified the mystery Euroleague player.</p>
+            <button onclick="closeDialog('correctAnswerDialog')">Close</button>
+        </div>
+    </dialog>
+    
+    <!-- Exceeded Attempts Dialog -->
+    <dialog id="exceededAttemptsDialog">
+        <div class="dialog-content">
+            <h2>Game Over</h2>
+            <p>Unfortunately, you've exceeded the maximum number of attempts. Better luck next time!</p>
+            <button onclick="closeDialog('exceededAttemptsDialog')">Close</button>
+        </div>
+    </dialog>
         <!-- <footer>Ivan</footer> -->
         <script  type="module" src="main.js"></script>
         <footer>
             Made by <a class="ivan-gh" target="_blank" href="https://github.com/ivan00stojanovic">Ivan</a>
         </footer>
-        <!-- <div class="winner show-winner" id="winner-declaration">
-            <h4 id="winner-text"></h4>
-            <button class="restart-after-win"  id="restart-after-win">Play again :)</button>
-        </div> -->
+       
     </body>
     </html>
 
