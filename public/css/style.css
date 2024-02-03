@@ -132,6 +132,17 @@ dialog {
       font-size: 1.2rem;
 }
 
+.dialog-content .center-playerOTD, .playerOTD{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerOTD {
+    font-size: 1.2rem;
+    color: orange;
+}
+
 /* Style for the close button inside the dialogs */
 .dialog-content button {
     background-color: orange;
@@ -169,7 +180,7 @@ h1::first-letter{
     color: orange;
     font-size: 18px;
     font-weight: 700;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* margin-right: 35rem;
     margin-top: 10rem; */
     /* outline: 1px solid black; */
@@ -275,7 +286,7 @@ table td > .generated-team {
 }
 
 .green-bg-add{
-    background-color: green;
+    background-color: hsla(148, 92%, 42%, 0.953);
     transition: background-color 0.30s ease-in, color 0.25s ease-in;
     color: white;
 }

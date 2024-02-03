@@ -31,9 +31,7 @@ const fetchPlayers = async () => {
   const data = await response.json();
   fetchArray = data.map((players) => players.name);
   allPlayersArray = data
-  // console.log(allPlayersArray[0].jerseyNumber)
   // fetchArray = data
-  // randomOne = data[Math.floor(Math.random() * data.length)];
   playerOTD = getPlayerOTD(data)
   console.log(playerOTD)
   loadData(fetchArray, playersListElement);
@@ -42,21 +40,21 @@ const fetchPlayers = async () => {
 
 const getPlayerOTD = (data) => {
   const winningPlayer = data[Math.floor(Math.random() * data.length)]
-  // console.log(winningPlayer)
   return winningPlayer
 }
 const showUp = document.getElementById('exceededAttemptsDialog')
 
-const limit = (brojac) => {
-  // console.log('Limit function called with counter:', brojac);
-
+const guessChecker = (brojac) => {
+  // console.log(playerOTD)
+  const correctOne = document.querySelector('.playerOTD')
+  correctOne.innerHTML = playerOTD.name
   if (brojac === 6) {
+    input.disabled = false
     window.openDialog('exceededAttemptsDialog');
     console.log('Counter exceeds 6. Opening modal...');
     input.placeholder = `You'll get it next time`;
     input.disabled = true;
   }
-  
 };
 
 // test.classList.add('blurry')
@@ -86,9 +84,9 @@ const filterData = (data, searchText) => {
      const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value);
      instructions.removeAttribute('id', 'player-list');
      counter++;
-    //  window.openDialog('exceededAttemptsDialog')
+    //  window.openDialog('correctAnswerDialog')
       input.placeholder =  `Guess ${counter+1} of 6`;
-      limit(counter)
+      guessChecker(counter)
       htmlGenerator(allAnswers[counter], inputedPlayer)
       compareInput(input, playerOTD);
       input.value = '';
@@ -110,7 +108,7 @@ input.addEventListener('input', () => {
 
 // let isKeyboardNavigation = false;
 
-input.addEventListener('keydown', (event) => {
+input.addEventListener('keyup', (event) => {
   const searchText = input.value.trim();
   const options = playersListElement.querySelectorAll('li');
   const visibleOptions = Array.from(options).slice(0, 4);
@@ -136,20 +134,19 @@ input.addEventListener('keydown', (event) => {
       highlightSelectedOption(visibleOptions);
       input.value = visibleOptions[selectedOptionIndex].textContent;
   } else if (event.key === 'Enter') {
-    const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
-    if (selectedOptionIndex !== -1 || inputedPlayer)  {
-      input.value = visibleOptions[selectedOptionIndex].textContent;
-      selectedOptionIndex = -1;
-      playersListElement.style.display = 'none';
-      counter++
-      limit(counter)
-      console.log('Current counter num is =>', counter)
-      input.placeholder =  `Guess ${counter+1} of 6`
-      htmlGenerator(allAnswers[counter], inputedPlayer)
-      compareInput(input, playerOTD);
-      input.value = '';
-      answerContainer.scrollTop = answerContainer.scrollHeight
-      window.openDialog('exceededAttemptsDialog')
+    const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value);
+      if (selectedOptionIndex !== -1 || inputedPlayer)  {
+        input.value = visibleOptions[selectedOptionIndex].textContent;
+        selectedOptionIndex = -1;
+        playersListElement.style.display = 'none';
+        counter++;
+        console.log('Current counter num is =>', counter);
+        input.placeholder =  `Guess ${counter+1} of 6`;
+        guessChecker(counter);
+        htmlGenerator(allAnswers[counter], inputedPlayer);
+        compareInput(input, playerOTD);
+        input.value = '';
+        answerContainer.scrollTop = answerContainer.scrollHeight;
     }
   }
 
@@ -202,7 +199,7 @@ const compareInput = (inputed, randomPlayerName) => {
   instructions.removeAttribute('id', 'player-list') 
   const inputedPlayer = allPlayersArray.find(inputedPlayer => inputedPlayer.name === input.value)
   let currentRow = allAnswers[counter]
-  compareFuntionsArray.forEach(comparision => comparision(inputedPlayer, randomPlayerName, currentRow))
+  compareFunctionsArray.forEach(comparision => comparision(inputedPlayer, randomPlayerName, currentRow))
 };
 
 const upArrow = `<span class ="arrow"> &#8593</span>`
@@ -228,12 +225,12 @@ const animateYellow = (td) => {
 const compareAge = (x, y, tdAge) => {
   const age = tdAge.querySelector('.generated-age')
   if(x.age == y.age){
-   animateGreen(age)
+    animateGreen(age)
   }else if(Math.abs(x.age - y.age) <= 2){
     animateYellow(age)
   }
   arrowDirection(x.age, y.age, age)
-
+  
 }
 
 const compareJersey = (x, y, tdJersey) => {
@@ -268,7 +265,6 @@ const comparePosition = (x, y, tdPosition) => {
   }else if(commonPositions.length > 0){
     animateYellow(position)
   }
-  console.log(x.position, y.position)
   // appearanceAnimation(position)
 }
 
@@ -289,17 +285,17 @@ const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name == y.name){ 
     animateGreen(name)
-    // test.classList.add('blurry')
+    window.openDialog('correctAnswerDialog')
     input.disabled = true
     input.placeholder = 'You guessed right!'
-    // winnerDeclaration.classList.toggle('show-winner')
+    window.closeDialog('exceededAttemptsDialog')
+    console.log(counter)
+    firstTry++
+    console.log(firstTry)
   }
-  // appearanceAnimation(name)
 }
 
-
-
-const compareFuntionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
+const compareFunctionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
 
 window.openDialog = function(dialogId) {
   const dialog = document.getElementById(dialogId);
@@ -314,6 +310,16 @@ window.closeDialog = function(dialogId) {
       dialog.close();
   }
 }
+
+let totalGamesCounter = 0
+let firstTry = 0
+let secondTry = 0
+let thirdTry = 0
+let fourthTry = 0
+let fifthTry = 0
+let sixthTry = 0
+
+
  
 
 

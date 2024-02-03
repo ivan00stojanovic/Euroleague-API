@@ -21,7 +21,7 @@
                     <h2 style="margin-bottom: 3rem;">Welcome to Eurole!</h2>
                     <p>Your goal is to figure out who the mystery Euroleague player is. Here's a guide to help you:</p>
                     <ul>
-                        <li>If the column is <span style="background-color: green; color: white; padding: 3px;">green</span>, it matches the mystery player.</li>
+                        <li>If the column is <span style="background-color: hsla(148, 92%, 42%, 0.953); color: white; padding: 3px;">green</span>, it matches the mystery player.</li>
                         <li>If the team column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, the player played for that team in the past.</li>
                         <li>If the position column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, it indicates a partial match.</li>
                         <li><span style="background-color: yellow; color: black; padding: 3px;">Yellow in any other column</span> indicates that your age, height or jersey number value is within 2.</li>
@@ -123,8 +123,10 @@
     <!-- Exceeded Attempts Dialog -->
     <dialog id="exceededAttemptsDialog">
         <div class="dialog-content">
-            <h2>Game Over</h2>
+            <h2 style="margin-bottom: 2rem;">Game Over</h2>
             <p>Unfortunately, you've exceeded the maximum number of attempts. Better luck next time!</p>
+            <p class="center-playerOTD">The correct answer was:</p>
+            <span class="playerOTD">Ivan Stojanovic</span>
             <button onclick="closeDialog('exceededAttemptsDialog')">Close</button>
         </div>
     </dialog>
