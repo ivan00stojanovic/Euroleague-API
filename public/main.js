@@ -290,8 +290,8 @@ const isItCorrect = (x, y, tdName) => {
     input.placeholder = 'You guessed right!'
     window.closeDialog('exceededAttemptsDialog')
     console.log(counter)
-    firstTry++
-    console.log(firstTry)
+    // firstTry++
+    // console.log(firstTry)
   }
 }
 
@@ -312,19 +312,17 @@ window.closeDialog = function(dialogId) {
 }
 
 let totalGamesCounter = 0
-let firstTry = 0
+// let firstTry = 0
 let secondTry = 0
 let thirdTry = 0
 let fourthTry = 0
 let fifthTry = 0
 let sixthTry = 0
 
-
- 
-
-
+Number(localStorage.setItem('firstTry', 0))
 // Fetch players when the page loads
 fetchPlayers();
+// localStorage.clear()
 
 
 // CHECKLIST
