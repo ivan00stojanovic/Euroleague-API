@@ -33,8 +33,17 @@
             
             <dialog id="statsDialog">
                   <div class="dialog-content">
-                        <p>About the Wordle Game: [Insert information about the game here]</p>
-                        <button class="close-btn" onclick="closeDialog('statsDialog')">Close</button>
+                    <h2>User Stats</h2>
+                    <ul>
+                      <li>1st Try: <span id="firstTryCount">0</span></li>
+                      <li>2nd Try: <span id="secondTryCount">0</span></li>
+                      <li>3rd Try: <span id="thirdTryCount">0</span></li>
+                      <li>4th Try: <span id="fourthTryCount">0</span></li>
+                      <li>5th Try: <span id="fifthTryCount">0</span></li>
+                      <li>6th Try: <span id="sixthTryCount">0</span></li>
+                      <li>Failed rounds: <span id="failedCount">0</span></li>
+                      <li>Total Games Played: <span id="totalGamesCount">0</span></li>
+                    </ul>
                     </div>
               </dialog>
             <h1>Eurole</h1>
@@ -114,8 +123,8 @@
     </div>
     <dialog id="correctAnswerDialog">
         <div class="dialog-content">
-            <h2>Congratulations!</h2>
-            <p>You've correctly identified the mystery Euroleague player.</p>
+            <h2 style="margin-bottom: 2rem;">Congratulations!</h2>
+            <p class="congrats-message">Winner displayed here.</p>
             <button onclick="closeDialog('correctAnswerDialog')">Close</button>
         </div>
     </dialog>
@@ -124,7 +133,7 @@
     <dialog id="exceededAttemptsDialog">
         <div class="dialog-content">
             <h2 style="margin-bottom: 2rem;">Game Over</h2>
-            <p>Unfortunately, you've exceeded the maximum number of attempts. Better luck next time!</p>
+            <p>Unfortunately, you didn't manage to get it, better luck next time!</p>
             <p class="center-playerOTD">The correct answer was:</p>
             <span class="playerOTD">Ivan Stojanovic</span>
             <button onclick="closeDialog('exceededAttemptsDialog')">Close</button>

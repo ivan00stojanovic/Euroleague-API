@@ -54,6 +54,7 @@ const guessChecker = (brojac) => {
     console.log('Counter exceeds 6. Opening modal...');
     input.placeholder = `You'll get it next time`;
     input.disabled = true;
+    addToLocalStorage(7)
   }
 };
 
@@ -279,21 +280,71 @@ const compareTeam = (x, y, tdTeam) => {
 }
 
 
-const test = document.querySelector('.body') 
+
 
 const isItCorrect = (x, y, tdName) => {
   const name = tdName.querySelector('.generated-name')
   if(x.name == y.name){ 
+    const congratulationMessage = document.querySelector('.congrats-message')
+    congratsMessage(counter, congratulationMessage, x)
     animateGreen(name)
     window.openDialog('correctAnswerDialog')
     input.disabled = true
     input.placeholder = 'You guessed right!'
     window.closeDialog('exceededAttemptsDialog')
-    console.log(counter)
-    // firstTry++
-    // console.log(firstTry)
+    addToLocalStorage(counter)
   }
 }
+
+let firstTryCounter = document.getElementById('firstTryCount')
+let secondTryCounter = document.getElementById('secondTryCount')
+let thirdTryCounter = document.getElementById('thirdTryCount')
+let fourthTryCounter = document.getElementById('fourthTryCount')
+let fifthTryCounter = document.getElementById('fifthTryCount')
+let sixthTryCounter = document.getElementById('sixthTryCount')
+let failedCounter = document.getElementById('failedCount')
+let totalGamesCounter = document.getElementById('totalGamesCount')
+
+console.log(localStorage)
+
+const scoreTrackerArray = [[firstTryCounter, localStorage.getItem('firstTry'),'firstTry'], [secondTryCounter, localStorage.getItem('secondTry',), 'secondTry'],
+                           [thirdTryCounter, localStorage.getItem('thirdTry'),'thirdTry'], [fourthTryCounter, localStorage.getItem('fourthTry',), 'fourthTry'], 
+                           [fifthTryCounter, localStorage.getItem('fifthTry'),'fifthTry'], [sixthTryCounter, localStorage.getItem('sixthTry',), 'sixthTry'],
+                           [failedCounter, localStorage.getItem('failedCount'),'failedCount'], [totalGamesCounter, localStorage.getItem('totalGamesCount'), 'totalGamesCount']
+                          ]
+
+// totalGamesCounter.innerHTML = 7
+const addToLocalStorage = (brojac) => {
+  let temp = Number(scoreTrackerArray[brojac - 1][1]);
+  let tempTotal = Number(scoreTrackerArray[7][1]); // Assuming totalGamesCounter is a DOM element
+  temp++; 
+  tempTotal++;
+  localStorage.setItem(scoreTrackerArray[brojac - 1][2], temp);
+  localStorage.setItem(scoreTrackerArray[7][2], tempTotal);
+  // scoreTrackerArray[7][0].innerHTML = tempTotal // Update the totalGamesCounter element
+}
+
+
+const initialize = (keyValue) => {
+  if (localStorage.getItem(keyValue) === null) {
+    localStorage.setItem(keyValue, 0);
+  }
+}
+
+const congratsMessage = (brojac, msg, player) => {
+  brojac <= 1 ? msg.innerHTML = `You've correctly guessed ${player.name}! It took you only one try, nice one!` 
+              : msg.innerHTML = `You've correctly guessed ${player.name}! It took you ${counter} guesses :)`
+}
+
+scoreTrackerArray.forEach((el,index) => {
+  initialize(el[2])
+  const temp = Number(el[1])
+  el[0].innerHTML = temp
+})
+// localStorage.clear()
+                           
+
+fetchPlayers();
 
 const compareFunctionsArray = [compareAge, compareJersey, compareHeight, comparePosition, compareTeam, isItCorrect]
 
@@ -310,19 +361,6 @@ window.closeDialog = function(dialogId) {
       dialog.close();
   }
 }
-
-let totalGamesCounter = 0
-// let firstTry = 0
-let secondTry = 0
-let thirdTry = 0
-let fourthTry = 0
-let fifthTry = 0
-let sixthTry = 0
-
-Number(localStorage.setItem('firstTry', 0))
-// Fetch players when the page loads
-fetchPlayers();
-// localStorage.clear()
 
 
 // CHECKLIST
