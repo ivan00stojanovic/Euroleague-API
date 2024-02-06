@@ -24,7 +24,7 @@
                         <li>If the column is <span style="background-color: hsla(148, 92%, 42%, 0.953); color: white; padding: 3px;">green</span>, it matches the mystery player.</li>
                         <li>If the team column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, the player played for that team in the past.</li>
                         <li>If the position column is <span style="background-color: yellow; color: black; padding: 3px;">yellow</span>, it indicates a partial match.</li>
-                        <li><span style="background-color: yellow; color: black; padding: 3px;">Yellow in any other column</span> indicates that your age, height or jersey number value is within 2.</li>
+                        <li style="margin-bottom: 2rem;"><span style="background-color: yellow; color: black; padding: 3px;">Yellow in any other column</span> indicates that your age, height or jersey number value is within 2.</li>
                         <span class="good-wishes">Good Luck and Have Fun :)</span>
                     </ul>
                     <button class="close-btn" onclick="closeDialog('howToDialog')">Close</button>
@@ -32,8 +32,8 @@
             </dialog>
             
             <dialog id="statsDialog">
-                  <div class="dialog-content">
-                    <h2>User Stats</h2>
+                <div class="dialog-content dialog-stats">
+                  <h2>Your Stats</h2>
                     <ul>
                       <li>1st Try: <span id="firstTryCount">0</span></li>
                       <li>2nd Try: <span id="secondTryCount">0</span></li>
@@ -44,7 +44,11 @@
                       <li>Failed rounds: <span id="failedCount">0</span></li>
                       <li>Total Games Played: <span id="totalGamesCount">0</span></li>
                     </ul>
+                    <div class="stats-btn">
+                        <button class="close-btn" onclick="closeDialog('statsDialog')">Close</button>
+                        <button class="clear-btn" onclick="clearScores()">Clear Scores</button>
                     </div>
+                </div>
               </dialog>
             <h1>Eurole</h1>
             <div class="centered-input">
