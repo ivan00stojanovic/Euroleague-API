@@ -31,6 +31,7 @@ const fetchPlayers = async () => {
   const data = await response.json();
   fetchArray = data.map((players) => players.name);
   allPlayersArray = data
+  // console.log(allPlayersArray)
   // fetchArray = data
   playerOTD = getPlayerOTD(data)
   console.log(playerOTD)
