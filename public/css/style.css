@@ -105,7 +105,23 @@ dialog {
     border: 2px solid orange;
     border-radius: 5px;
     padding: 4rem;
+    transition: 0.5s ease-in;
+    /* animation: showUp 0.35s ease-out; */
 }
+
+dialog:not(#correctAnswerDialog){
+    animation: showUp 0.35s ease-out;
+
+}
+
+@keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 /* Style for the inner content of the dialogs */
 .dialog-content {
@@ -142,7 +158,7 @@ dialog {
   }
 
  .good-wishes {
-      margin-left: 3rem;
+      margin-left: 3.5rem;
       font-size: 1.2rem;
  }
 

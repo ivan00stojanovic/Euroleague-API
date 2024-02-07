@@ -321,6 +321,9 @@ const addToLocalStorage = (brojac) => {
   tempTotal++;
   localStorage.setItem(scoreTrackerArray[brojac - 1][2], temp);
   localStorage.setItem(scoreTrackerArray[7][2], tempTotal);
+  console.log(`counter is ${brojac}`)
+  scoreTrackerArray[brojac - 1][0].innerHTML++
+  scoreTrackerArray[7][0].innerHTML++
   // scoreTrackerArray[7][0].innerHTML = tempTotal // Update the totalGamesCounter element
 }
 
@@ -341,6 +344,16 @@ scoreTrackerArray.forEach((el,index) => {
   const temp = Number(el[1])
   el[0].innerHTML = temp
 })
+
+ window.clearScores = function() {
+  // const btn = document.querySelector('.clear-btn')
+  localStorage.clear()
+  console.log(localStorage)
+  scoreTrackerArray.forEach(el => {
+    el[0].innerHTML = 0
+  })
+
+}
 // localStorage.clear()
                            
 
