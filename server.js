@@ -145,6 +145,60 @@ app.get('/', (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
+
+//   app.get('/teams/:teamName', (req, res) => {
+//     try {
+//         const teamName = req.params.teamName.toLowerCase();
+
+//           const filteredPlayers = playersData.filter(player => player.team[1].toLowerCase() === teamName);
+//           if(filteredPlayers){
+//             res.json(filteredPlayers);
+//           }else{
+//             res.status(404).json({ error: 'Players not found' });
+//           }
+//   } catch (error) {
+//     console.error(`Error retrieving players from ${teamName}:`, error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+app.get('/teams/:teamName', (req, res) => {
+  try {
+    const teamName = req.params.teamName.toUpperCase(); // Convert to uppercase for case-insensitivity
+
+    // Filter players based on the teamName
+    const filteredPlayers = playersData.filter(player => player.team[1].toUpperCase() === teamName);
+
+    if (filteredPlayers.length > 0) {
+      // If no players found for the specified team, return a 404 status
+      res.json(filteredPlayers);
+    } else {
+      res.status(404).json({ error: 'Team not found' });
+      // Send the filtered players as JSON response
+    }
+  } catch (error) {
+    // Handle other potential errors
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/players/age/:age', (req, res) => {
+  try {
+    const ageWanted = Number(req.params.age);
+
+    const nAgePlayers = playersData.filter(player => player.age == ageWanted);
+
+    if (nAgePlayers.length > 0) {
+      res.json(nAgePlayers);
+    } else {
+      res.status(404).json({ error: `We have no ${ageWanted} year old players in the Euroleague` });
+    }
+  } catch (error) {
+    res.status(500).json({ error: `Internal server error` });
+  }
+});
+
   
 const PORT = process.env.PORT  || 1991;
 
