@@ -409,6 +409,57 @@ let playersData = [
     let jordanTheodore = new Player('Jordan Theodore', [teamLogos[9], 'BSK','EA7' ], ['G'], '183', '35', '25');  playersData.push(jordanTheodore)
     let chimaMoneke = new Player('Chima Moneke', [teamLogos[9], 'BSK', 'ASM' ], ['C'], '198', '28', '95');  playersData.push(chimaMoneke)
 
+    let jaredHarper = new Player('Jared Harper', [teamLogos[9], 'VAL' ], ['G'], '178', '26', '0');  playersData.push(jaredHarper)
+    let victorClaver = new Player('Victor Claver', [teamLogos[9], 'VAL','FCB' ], ['F'], '207', '35', '1');  playersData.push(victorClaver)
+    let nateReuvers = new Player('Nate Reuvers', [teamLogos[9], 'VAL' ], ['C'], '211', '25', '3');  playersData.push(nateReuvers)
+    let jaimePradilla = new Player('Jaime Pradila', [teamLogos[9], 'VAL' ], ['F','C'], '205', '23', '4');  playersData.push(jaimePradilla)
+    let justinAnderson = new Player('Justin Anderson', [teamLogos[9], 'VAL' ], ['G','F'], '196', '30', '5');  playersData.push(justinAnderson)
+    let xabierLopez_Arostegui = new Player('Xabier Lopez-Arostegui', [teamLogos[9], 'VAL' ], ['F'], '200', '26', '6');  playersData.push(xabierLopez_Arostegui)
+    let chrisJones = new Player('Chris Jones', [teamLogos[9], 'VAL','ASV','MAC' ], ['G'], '188', '30', '7');  playersData.push(chrisJones)
+    let damienInglis = new Player('Damien Inglis', [teamLogos[9], 'VAL','ASM' ], ['F'], '203', '28', '10');  playersData.push(damienInglis)
+    let stefanJovic = new Player('Stefan Jovic', [teamLogos[9], 'VAL','CZV','PAO','BAY' ], ['G'], '198', '33', '16');  playersData.push(stefanJovic)
+    let boubacarToure = new Player('Boubacar Toure', [teamLogos[9], 'VAL' ], ['C'], '213', '28', '21');  playersData.push(boubacarToure)
+    let kassiusRobertson = new Player('Kassius Robertson', [teamLogos[9], 'VAL' ], ['G'], '191', '29', '30');  playersData.push(kassiusRobertson)
+    let brandonDavies = new Player('Brandon Davies', [teamLogos[9], 'VAL','EA7','FCB','ZAL','ASM' ], ['C'], '208', '32', '32');  playersData.push(brandonDavies)
+    let semiOjeleye = new Player('Semi Ojeleye', [teamLogos[9], 'VAL','VIR' ], ['F'], '198', '29', '37');  playersData.push(semiOjeleye)
+    let kevinPangos = new Player('Kevin Pangos', [teamLogos[9], 'VAL','EA7','FCB','ZAL' ], ['G'], '185', '31', '47');  playersData.push(kevinPangos)
+
+    let antoniusCleveland = new Player('Antonius Cleveland', [teamLogos[9], 'MAC' ], ['G','F'], '196', '30', '1');  playersData.push(antoniusCleveland)
+    let jamesWebb = new Player('James Webb', [teamLogos[9], 'MAC','VAL' ], ['F'], '206', '30', '3');  playersData.push(jamesWebb)
+    let lorenzoBrown = new Player('Lorenzo Brown', [teamLogos[9], 'MAC','CZV','FEN' ], ['G'], '196', '33', '4');  playersData.push(lorenzoBrown)
+    let wadeBaldwin = new Player('Wade Baldwin', [teamLogos[9], 'MAC','OLY','BSK','BAY' ], ['G'], '193', '27', '5');  playersData.push(wadeBaldwin)
+    let rafiMenco = new Player('Rafi Menco', [teamLogos[9], 'MAC' ], ['F'], '200', '29', '8');  playersData.push(rafiMenco)
+    let romanSorkin = new Player('Roman Sorkin', [teamLogos[9], 'MAC' ], ['F','C'], '208', '27', '9');  playersData.push(romanSorkin)
+    let johnDiBartolomeo = new Player('John DiBartolomeo', [teamLogos[9], 'MAC' ], ['G'], '183', '32', '12');  playersData.push(johnDiBartolomeo)
+    let jasielRivero = new Player('Jasiel Rivero', [teamLogos[9], 'MAC','VAL' ], ['F','C'], '206', '30', '14');  playersData.push(jasielRivero)
+    let jakeCohen = new Player('Jake Cohen', [teamLogos[9], 'MAC' ], ['F','C'], '209', '33', '15');  playersData.push(jakeCohen)
+    let joeThomasson = new Player('Joe Thomasson', [teamLogos[9], 'MAC' ], ['G'], '193', '30', '24');  playersData.push(joeThomasson)
+    let joshNebo = new Player('Josh Nebo', [teamLogos[9], 'MAC' ], ['C'], '206', '26', '32');  playersData.push(joshNebo)
+    let tamirBlatt = new Player('Tamir Blatt', [teamLogos[9], 'MAC','ALB' ], ['G'], '178', '26', '45');  playersData.push(tamirBlatt)
+    let bonzieColson = new Player('Bonzie Colson', [teamLogos[9], 'MAC' ], ['F'], '198', '28', '50');  playersData.push(bonzieColson)
+
+    let rodneyMcGruder = new Player('Rodney McGruder', [teamLogos[9], 'EA7' ], ['G'], '193', '28', '1');  playersData.push(rodneyMcGruder)
+    let maodoLo = new Player('Maodo Lo', [teamLogos[9], 'EA7','ALB','BAY' ], ['G'], '191', '31', '0');  playersData.push(maodoLo)
+    let alexPoythress = new Player('Alex Poythress', [teamLogos[9], 'EA7','MAC' ], ['F','C'], '206', '30', '2');  playersData.push(alexPoythress)
+    let giordanoBortolani = new Player('Giordano Bortolani', [teamLogos[9], 'EA7' ], ['G'], '193', '23', '3');  playersData.push(giordanoBortolani)
+    let stefanoTonut = new Player('Stefano Tonut', [teamLogos[9], 'EA7' ], ['G'], '194', '30', '7');  playersData.push(stefanoTonut)
+    let nicoloMelli = new Player('Nicolo Melli', [teamLogos[9], 'EA7','FEN' ], ['F','C'], '205', '33', '9');  playersData.push(nicoloMelli)
+    let billyBaron = new Player('Billy Baron', [teamLogos[9], 'EA7','CZV' ], ['G'], '188', '33', '12');  playersData.push(billyBaron)
+    let shabazzNapier = new Player('Shabazz Napier', [teamLogos[9], 'EA7','CZV' ], ['G'], '183', '32', '13');  playersData.push(shabazzNapier)
+    let giampaoloRicci = new Player('Giampaollo Ricci', [teamLogos[9], 'EA7','VIR' ], ['F'], '202', '32', '17');  playersData.push(giampaoloRicci)
+    let diegoFlaccadori = new Player('Diego Flaccadori', [teamLogos[9], 'EA7','BAY' ], ['G'], '195', '27', '21');  playersData.push(diegoFlaccadori)
+    let devonHall = new Player('Devon Hall', [teamLogos[9], 'EA7' ], ['G'], '196', '28', '22');  playersData.push(devonHall)
+    let shavonShields = new Player('Shavon Shields', [teamLogos[9], 'EA7','BSK' ], ['F'], '201', '29', '31');  playersData.push(shavonShields)
+    let nikolaMirotic = new Player('Nikola Mirotic', [teamLogos[9], 'EA7','FCB','RMB' ], ['F'], '208', '33', '33');  playersData.push(nikolaMirotic)
+    let kyleHines = new Player('Kyle Hines', [teamLogos[9], 'EA7','OLY' ], ['F','C'], '198', '37', '42');  playersData.push(kyleHines)
+    let johannesVoigtmann = new Player('Johannes Voigtman', [teamLogos[9], 'EA7','BSK' ], ['F','C'], '211', '31', '77');  playersData.push(johannesVoigtmann)
+
+    let keenanEvans = new Player('Keenan Evans', [teamLogos[9], 'ZAL' ], ['G'], '191', '31', '2');  playersData.push(keenanEvans)
+
+
+
+  
+
 
 
 
