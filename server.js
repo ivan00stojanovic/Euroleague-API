@@ -7,8 +7,6 @@ const Player = require('./models/playerModel');
 const playersData = require('./models/playersData');
 const path = require('path');
 // console.log(playersData[playersData.length - 1])
-
-
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -17,7 +15,6 @@ dotenv.config({ path: './config/config.env' });
 
 // Handle CORS error
 app.use(cors());
-
 
 connectDB();
 
@@ -61,10 +58,7 @@ const removeNonExisting = async () => {
       console.error(error);
   }
 }
-
-
 // removeNonExisting()
-
 
 
 async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
@@ -88,11 +82,8 @@ async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
     console.error('Error updating player:', error);
   }
 }
-
 // Example usage
 // updatePlayerTeam('64b573b874ffb47eeb8a8db9', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png', 'RMB');
-
-
 
 // // Update documents where team is an empty string
 // Player.updateMany({ team: '' }, { $set: { team: [] } })
@@ -112,90 +103,59 @@ async function updatePlayerTeam(playerId, newImageUrl, newTeamName) {
 //   }
 // });
 
-app.get('/getInfo', (req, res) => {
-    try {
+// Original route: /getInfo
+app.get('/api/getInfo', (req, res) => {
+  try {
       res.send(playersData);
-    } catch (error) {
+  } catch (error) {
       console.error('Error sending player data:', error);
       res.status(500).send('Internal Server Error');
-    }
-  });
-
-  // Serve index.html as the default file
-app.get('/', (req, res) => {
-  try {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  } catch (error) {
-    console.error('Error loading index.html:', error);
-    res.status(500).send('Internal Server Error');
   }
 });
 
-  app.get('/players/:playerName', (req, res) => {
-      try {
-          const playerName = req.params.playerName.toLowerCase();
-          const player = playersData.find(player => player.name.toLowerCase() === playerName);
-          if (player) {
-              res.json(player);
+// Original route: /
+app.get('/api/', (req, res) => {
+  try {
+      res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  } catch (error) {
+      console.error('Error loading index.html:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+// Original route: /players/age/:age
+app.get('/api/players/age/:age', (req, res) => {
+  try {
+      const ageWanted = Number(req.params.age);
+
+      const nAgePlayers = playersData.filter(player => player.age == ageWanted);
+
+      if (nAgePlayers.length > 0) {
+          res.json(nAgePlayers);
       } else {
-        res.status(404).json({ error: 'Player not found' });
+          res.status(404).json({ error: `We have no ${ageWanted} year old players in the Euroleague` });
       }
-    } catch (error) {
-      console.error('Error retrieving player:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-
-//   app.get('/teams/:teamName', (req, res) => {
-//     try {
-//         const teamName = req.params.teamName.toLowerCase();
-
-//           const filteredPlayers = playersData.filter(player => player.team[1].toLowerCase() === teamName);
-//           if(filteredPlayers){
-//             res.json(filteredPlayers);
-//           }else{
-//             res.status(404).json({ error: 'Players not found' });
-//           }
-//   } catch (error) {
-//     console.error(`Error retrieving players from ${teamName}:`, error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
-
-app.get('/teams/:teamName', (req, res) => {
-  try {
-    const teamName = req.params.teamName.toUpperCase(); // Convert to uppercase for case-insensitivity
-
-    // Filter players based on the teamName
-    const filteredPlayers = playersData.filter(player => player.team[1].toUpperCase() === teamName);
-
-    if (filteredPlayers.length > 0) {
-      // If no players found for the specified team, return a 404 status
-      res.json(filteredPlayers);
-    } else {
-      res.status(404).json({ error: 'Team not found' });
-      // Send the filtered players as JSON response
-    }
   } catch (error) {
-    // Handle other potential errors
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: `Internal server error` });
   }
 });
 
-app.get('/players/age/:age', (req, res) => {
+// Original route: /teams/:teamName
+app.get('/api/teams/:teamName', (req, res) => {
   try {
-    const ageWanted = Number(req.params.age);
+      const teamName = req.params.teamName.toUpperCase(); // Convert to uppercase for case-insensitivity
 
-    const nAgePlayers = playersData.filter(player => player.age == ageWanted);
+      // Filter players based on the teamName
+      const filteredPlayers = playersData.filter(player => player.team[1].toUpperCase() === teamName);
 
-    if (nAgePlayers.length > 0) {
-      res.json(nAgePlayers);
-    } else {
-      res.status(404).json({ error: `We have no ${ageWanted} year old players in the Euroleague` });
-    }
+      if (filteredPlayers.length > 0) {
+          res.json(filteredPlayers);
+      } else {
+          res.status(404).json({ error: 'Team not found' });
+      }
   } catch (error) {
-    res.status(500).json({ error: `Internal server error` });
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
   }
 });
 
@@ -205,6 +165,3 @@ const PORT = process.env.PORT  || 1991;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}, Hell Yea`);
 });
-
-
-
