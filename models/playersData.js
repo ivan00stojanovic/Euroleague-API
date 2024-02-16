@@ -26,14 +26,6 @@ let playersData = [
     "age": 32,
     "jerseyNumber": 7
     },
-    // {
-    // "name": "Luca Vildoza",
-    // "team": [teamLogos[0], 'PAO', 'BSK', 'CZV'],
-    // "position": ["G"],
-    // "height": 191,
-    // "age": 28,
-    // "jerseyNumber": 1
-    // },
     {
     "name": "Luka Mitrovic",
     "team": [teamLogos[0], 'CZV'],
@@ -50,14 +42,6 @@ let playersData = [
     "age": 36,
     "jerseyNumber": 4
     },
-    // {
-    // "name": "Ognjen Dobric",
-    // "team": [teamLogos[0], 'VIR', 'CZV'],
-    // "position": ["F"],
-    // "height": 200,
-    // "age": 29,
-    // "jerseyNumber": 13
-    // },
     {
     "name": "Branko Lazic",
     "team": [teamLogos[0], 'CZV'],
@@ -453,29 +437,8 @@ let playersData = [
     let nikolaMirotic = new Player('Nikola Mirotic', [teamLogos[9], 'EA7','FCB','RMB' ], ['F'], '208', '33', '33');  playersData.push(nikolaMirotic)
     let kyleHines = new Player('Kyle Hines', [teamLogos[9], 'EA7','OLY' ], ['F','C'], '198', '37', '42');  playersData.push(kyleHines)
     let johannesVoigtmann = new Player('Johannes Voigtman', [teamLogos[9], 'EA7','BSK' ], ['F','C'], '211', '31', '77');  playersData.push(johannesVoigtmann)
-
-    let keenanEvans = new Player('Keenan Evans', [teamLogos[9], 'ZAL' ], ['G'], '191', '31', '2');  playersData.push(keenanEvans)
-
-
-
-  
-
-
-
-
-
-   
-
-
-
-
-
-
     
-
-    	
     
-
 
 
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)       
