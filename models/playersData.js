@@ -510,7 +510,6 @@ let playersData = [
     let johannesThiemann = new Player('Johannes Thiemann',[teamlogos[9],'ALB'],['F','C'], '205','30','32'); playersData.push(johannesThiemann)
     let justinBean = new Player('Justin Bean',[teamlogos[9],'ALB'],['F'], '201','27','34'); playersData.push(justinBean)
 
-
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)       
 module.exports = playersData
 
