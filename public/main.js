@@ -25,7 +25,6 @@ const answerContainer = document.querySelector('.table-container')
 // 6. Might redesign the input
 
 
-
 const fetchPlayers = async () => {
   const response = await fetch('http://localhost:1991/api/players/all');
   const data = await response.json();
@@ -46,7 +45,6 @@ const getPlayerOTD = (data) => {
 const showUp = document.getElementById('exceededAttemptsDialog')
 
 const guessChecker = (brojac) => {
-  // console.log(playerOTD)
   const correctOne = document.querySelector('.playerOTD')
   correctOne.innerHTML = playerOTD.name
   if (brojac === 6) {
@@ -58,8 +56,6 @@ const guessChecker = (brojac) => {
     addToLocalStorage(7)
   }
 };
-
-// test.classList.add('blurry')
 
 const loadData = (data, element) => {
   if (data) {
@@ -250,7 +246,7 @@ const compareHeight = (x, y, tdHeight) => {
   const height = tdHeight.querySelector('.generated-height')
   if(x.height == y.height){
     animateGreen(height)
-  }else if(Math.abs(x.height - y.height) <= 5){
+  }else if(Math.abs(x.height - y.height) <= 2){
     animateYellow(height)
   }
   arrowDirection(x.height, y.height, height)
