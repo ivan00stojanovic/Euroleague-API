@@ -26,7 +26,7 @@ const answerContainer = document.querySelector('.table-container')
 
 
 const fetchPlayers = async () => {
-  const response = await fetch('http://localhost:1991/api/players/all');
+  const response = await fetch('/api/players/all');
   const data = await response.json();
   fetchArray = data.map((players) => players.name);
   allPlayersArray = data
