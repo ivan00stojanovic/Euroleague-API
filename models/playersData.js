@@ -519,6 +519,6 @@ let playersData = [
     let justinBean = new Player('Justin Bean',[teamLogos[17],'ALB'],['F'], '201','27','34'); playersData.push(justinBean)
 
     let shuffledArray = playersData.slice().sort(() => Math.random() - 0.5)       
-module.exports = playersData
+module.exports = shuffledArray
 
 
