@@ -33,7 +33,7 @@ const fetchPlayers = async () => {
   // console.log(allPlayersArray)
   // fetchArray = data
   playerOTD = getPlayerOTD(data)
-  console.log(playerOTD)
+  // console.log(playerOTD)
   loadData(fetchArray, playersListElement);
 };
 
@@ -50,7 +50,7 @@ const guessChecker = (brojac) => {
   if (brojac === 6) {
     input.disabled = false
     window.openDialog('exceededAttemptsDialog');
-    console.log('Counter exceeds 6. Opening modal...');
+    // console.log('Counter exceeds 6. Opening modal...');
     input.placeholder = `You'll get it next time`;
     input.disabled = true;
     addToLocalStorage(7)
@@ -138,7 +138,7 @@ input.addEventListener('keyup', (event) => {
         selectedOptionIndex = -1;
         playersListElement.style.display = 'none';
         counter++;
-        console.log('Current counter num is =>', counter);
+        // console.log('Current counter num is =>', counter);
         input.placeholder =  `Guess ${counter+1} of 6`;
         guessChecker(counter);
         htmlGenerator(allAnswers[counter], inputedPlayer);
@@ -302,7 +302,7 @@ let sixthTryCounter = document.getElementById('sixthTryCount')
 let failedCounter = document.getElementById('failedCount')
 let totalGamesCounter = document.getElementById('totalGamesCount')
 
-console.log(localStorage)
+// console.log(localStorage)
 
 const scoreTrackerArray = [[firstTryCounter, localStorage.getItem('firstTry'),'firstTry'], [secondTryCounter, localStorage.getItem('secondTry',), 'secondTry'],
                            [thirdTryCounter, localStorage.getItem('thirdTry'),'thirdTry'], [fourthTryCounter, localStorage.getItem('fourthTry',), 'fourthTry'], 
@@ -318,7 +318,7 @@ const addToLocalStorage = (brojac) => {
   tempTotal++;
   localStorage.setItem(scoreTrackerArray[brojac - 1][2], temp);
   localStorage.setItem(scoreTrackerArray[7][2], tempTotal);
-  console.log(`counter is ${brojac}`)
+  // console.log(`counter is ${brojac}`)
   scoreTrackerArray[brojac - 1][0].innerHTML++
   scoreTrackerArray[7][0].innerHTML++
   // scoreTrackerArray[7][0].innerHTML = tempTotal // Update the totalGamesCounter element
@@ -345,7 +345,7 @@ scoreTrackerArray.forEach((el,index) => {
  window.clearScores = function() {
   // const btn = document.querySelector('.clear-btn')
   localStorage.clear()
-  console.log(localStorage)
+  // console.log(localStorage)
   scoreTrackerArray.forEach(el => {
     el[0].innerHTML = 0
   })
