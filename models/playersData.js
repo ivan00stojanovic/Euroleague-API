@@ -399,7 +399,7 @@ let playersData = [
     let maikKotsar = new Player('Maik Kotsar', [teamLogos[9], 'BSK' ], ['C'], '211', '27', '21');  playersData.push(maikKotsar)
     let mattCostello = new Player('Matt Costello', [teamLogos[9], 'BSK' ], ['F','C'], '208', '30', '24');  playersData.push(mattCostello)
     let jordanTheodore = new Player('Jordan Theodore', [teamLogos[9], 'BSK','EA7' ], ['G'], '183', '35', '25');  playersData.push(jordanTheodore)
-    let chimaMoneke = new Player('Chima Moneke', [teamLogos[9], 'BSK', 'ASM' ], ['C'], '198', '28', '95');  playersData.push(chimaMoneke)
+    let chimaMoneke = new Player('Chima Moneke', [teamLogos[9], 'BSK', 'ASM' ], ['F', 'C'], '198', '28', '95');  playersData.push(chimaMoneke)
 
     let jaredHarper = new Player('Jared Harper', [teamLogos[10], 'VAL' ], ['G'], '178', '26', '0');  playersData.push(jaredHarper)
     let victorClaver = new Player('Victor Claver', [teamLogos[10], 'VAL','FCB' ], ['F'], '207', '35', '1');  playersData.push(victorClaver)
