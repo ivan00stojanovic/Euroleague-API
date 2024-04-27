@@ -336,11 +336,11 @@ let playersData = [
     let mikeJames = new Player('Mike James', [teamLogos[5], 'ASM' , 'BSK','PAO','EA7' ], ['G'], '185', '33', '55');  playersData.push(mikeJames)
 
     let isaiaCordinier = new Player('Isaia Cordninier', [teamLogos[6], 'VIR' ], ['G' , 'F'], '196', '27', '00');  playersData.push(isaiaCordinier)
-    let gabrielLundberg = new Player('Gabriel Lundberh', [teamLogos[6], 'VIR' ], ['G'], '193', '29', '1');  playersData.push(gabrielLundberg)
+    let gabrielLundberg = new Player('Gabriel Lundberg', [teamLogos[6], 'VIR' ], ['G'], '193', '29', '1');  playersData.push(gabrielLundberg)
     let marcoBelinelli = new Player('Marco Belinelli', [teamLogos[6], 'VIR' ], ['G' , 'F'], '196', '37', '3');  playersData.push(marcoBelinelli)
     let alessandroPajola = new Player('Alessandro Pajola', [teamLogos[6], 'VIR' ], ['G'], '194', '24', '6');  playersData.push(alessandroPajola)
     let ognjenDobric = new Player('Ognjen Dobric ', [teamLogos[6], 'VIR' , 'CZV' ], ['G' , 'F'], '200', '29', '13');  playersData.push(ognjenDobric)
-    let brunoMascolo = new Player('Bruno Mascolo ', [teamLogos[6], 'VIR' ], ['G'], '190', '27', '14');  playersData.push(brunoMascolo)
+    let brunoMascolo = new Player('Bruno Mascolo', [teamLogos[6], 'VIR' ], ['G'], '190', '27', '14');  playersData.push(brunoMascolo)
     let devontaeCacok = new Player('Devontae Cacok', [teamLogos[6], 'VIR' ], ['C'], '203', '27', '15');  playersData.push(devontaeCacok)
     let rihardsLomazs = new Player('Rihards Lomazs', [teamLogos[6], 'VIR' ,'ASV' ], ['G'], '193', '27','19');  playersData.push(rihardsLomazs)
     let tornikeShengelia = new Player('Tornike Shengelia', [teamLogos[6], 'VIR' , 'VAL', 'BSK' ], ['F'], '206', '32', '21');  playersData.push(tornikeShengelia)
