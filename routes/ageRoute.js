@@ -11,6 +11,7 @@ router.get('/players/age/:age', (req, res) => {
   
         if (nAgePlayers.length > 0) {
             res.json(nAgePlayers);
+            // console.log(res.json)
         } else {
             res.status(404).json({ error: `We have no ${ageWanted} year old players in the Euroleague` });
         }
