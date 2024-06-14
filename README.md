@@ -1,4 +1,4 @@
-# [Eurole](https://eurole-game.cyclic.app/)
+# [Eurole](https://eurole.onrender.com/)
 
 Eurole is a Wordle-esque full stack web application that challenges the user to guess the secret Euroleague player, while helping him along  the way.
 It is also a CRUD API that is made by me and is following an MVC architectural design pattern, neatly organised and easy to read. 
