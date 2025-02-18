@@ -26,7 +26,7 @@ const answerContainer = document.querySelector('.table-container')
 
 
 const fetchPlayers = async () => {
-  const response = await fetch('https://your-backend-service.onrender.com/api/players/all');
+  const response = await fetch('https://eurole.onrender.com/api/players/all');
 
   const data = await response.json();
   fetchArray = data.map((players) => players.name);
