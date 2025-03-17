@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+//github test
+// const dotenv = require('./dotenv');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const cors = require('cors');
@@ -11,8 +13,8 @@ console.log(playersData.length)
 app.use(express.static('public'));
 app.use(express.json());
 
-// Load config
-dotenv.config({ path: './config/config.env' });
+// Load configs
+dotenv.config({ path: './.env' });
 
 // Handle CORS error
 app.use(cors());
@@ -50,8 +52,9 @@ app.use('/api', teamRoute)
 app.use('/api', singlePlayerRoute);
 
   
-const PORT = process.env.PORT || 1991;
+const PORT = process.env.PORT || 1994;
+console.log(process.env.PORT)
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}, Hell Yea`);
+  console.log(`Server running on port ${PORT}, Working?`);
 });
