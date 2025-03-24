@@ -1,33 +1,60 @@
-const express = require('express');
+// const express = require('express');
+// const app = express();
+// //github test
+// // const dotenv = require('./dotenv');
+// const dotenv = require('dotenv');
+// const connectDB = require('./config/db');
+// const cors = require('cors');
+// const Player = require('./models/playerModel');
+// const playersData = require('./models/playersData');
+// const path = require('path');
+// // console.log(playersData[playersData.length - 1])
+// console.log(playersData.length)
+// app.use(express.static('public'));
+// app.use(express.json());
+
+// // Load config
+// dotenv.config({ path: './config/env' });
+
+// // Handle CORS error
+// app.use(cors());
+
+// //Controller
+// const playerController = require('./controllers/playerController')
+
+// //Routes
+// const singlePlayerRoute = require('./routes/singlePlayerRoute')
+// const ageRoute = require('./routes/ageRoute')
+// const allPlayersRoute = require('./routes/allPlayersRoute')
+// const teamRoute = require('./routes/teamRoute')
+
+// connectDB();
+
+const express = require("express");
 const app = express();
 //github test
 // const dotenv = require('./dotenv');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const cors = require('cors');
-const Player = require('./models/playerModel');
-const playersData = require('./models/playersData');
-const path = require('path');
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+const cors = require("cors");
+const Player = require("./models/playerModel");
+const playersData = require("./models/playersData");
+const path = require("path");
 // console.log(playersData[playersData.length - 1])
-console.log(playersData.length)
-app.use(express.static('public'));
+console.log(playersData.length);
+app.use(express.static("public"));
 app.use(express.json());
-
 // Load configs
-dotenv.config({ path: './.env' });
-
+dotenv.config({ path: "./config/.env" });
 // Handle CORS error
 app.use(cors());
-
 //Controller
-const playerController = require('./controllers/playerController')
-
+const playerController = require("./controllers/playerController");
 //Routes
-const singlePlayerRoute = require('./routes/singlePlayerRoute')
-const ageRoute = require('./routes/ageRoute')
-const allPlayersRoute = require('./routes/allPlayersRoute')
-const teamRoute = require('./routes/teamRoute')
-
+const singlePlayerRoute = require("./routes/singlePlayerRoute");
+const ageRoute = require("./routes/ageRoute");
+const allPlayersRoute = require("./routes/allPlayersRoute");
+const teamRoute = require("./routes/teamRoute");
 connectDB();
 
 // pushPlayers()
