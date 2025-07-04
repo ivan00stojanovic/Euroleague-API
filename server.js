@@ -32,15 +32,12 @@
 
 const express = require("express");
 const app = express();
-//github test
-// const dotenv = require('./dotenv');
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const cors = require("cors");
 const Player = require("./models/playerModel");
 const playersData = require("./models/playersData");
 const path = require("path");
-// console.log(playersData[playersData.length - 1])
 console.log(playersData.length);
 app.use(express.static("public"));
 app.use(express.json());
@@ -71,6 +68,10 @@ app.get('/', (req, res) => {
       console.error('Error loading index.html:', error);
       res.status(500).send('Internal Server Error');
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.use('/api', allPlayersRoute)
