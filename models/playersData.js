@@ -14,9 +14,10 @@ let teamLogos = ["https://upload.wikimedia.org/wikipedia/en/thumb/0/01/KK_Crvena
                  'https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/BC_%C5%BDalgiris_logo.svg/1200px-BC_%C5%BDalgiris_logo.svg.png',
                  'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anadolu_Efes_SK_logo.svg/1200px-Anadolu_Efes_SK_logo.svg.png',
                  'https://img.fcbayern.com/image/upload/q_auto,f_auto/cms/public/images/fcbayern-com/logos/bundesliga/480px-logo_fc_bayern_munchen.svg.png',
-                 'https://kixstats.com/img/logos/Villeurbanne_ASVEL.png',
+                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH0PzrTUjNiN2vvVvK45hTodpyDJqB-JUSZw&s',
                  'https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/Alba_Berlin_logo.svg/800px-Alba_Berlin_logo.svg.png']
 
+                 // change
 let playersData = [
     {
     "name": "Nemanja Nedovic",
