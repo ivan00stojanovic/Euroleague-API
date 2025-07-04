@@ -61,23 +61,27 @@ connectDB();
 // playerController.removeNonExisting()
 
 
-app.get('/', (req, res) => {
-  try {
-      res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  } catch (error) {
-      console.error('Error loading index.html:', error);
-      res.status(500).send('Internal Server Error');
-  }
-});
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
 
 app.use('/api', allPlayersRoute)
 app.use('/api', ageRoute)
 app.use('/api', teamRoute)
 app.use('/api', singlePlayerRoute);
+
+// app.get('/', (req, res) => {
+//   try {
+//       res.sendFile(path.join(__dirname, 'public', 'index.html'));
+//   } catch (error) {
+//       console.error('Error loading index.html:', error);
+//       res.status(500).send('Internal Server Error');
+//   }
+// });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+
 
   
 const PORT = process.env.PORT || 1994;
