@@ -24,18 +24,32 @@ const answerContainer = document.querySelector('.table-container')
 // 5. Add up down arrows for the user for help DONE
 // 6. Might redesign the input
 
+const fetchWithRetry = async (url, retries = 3, delay = 1500) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Bad response");
+    return await response.json();
+  } catch (err) {
+    if (retries > 0) {
+      console.warn(`Retrying... (${retries} left)`);
+      await new Promise(res => setTimeout(res, delay));
+      return fetchWithRetry(url, retries - 1, delay);
+    } else {
+      console.error("API failed after retries:", err);
+      throw err;
+    }
+  }
+}
 
 const fetchPlayers = async () => {
-  const response = await fetch('/api/players/all');
-  
-  const data = await response.json();
-  fetchArray = data.map((players) => players.name);
-  allPlayersArray = data
-  // console.log(allPlayersArray)
-  // fetchArray = data
-  playerOTD = getPlayerOTD(data)
-  // console.log(playerOTD)
-  loadData(fetchArray, playersListElement);
+  try {
+    const data = await fetchWithRetry('/api/players/all');     fetchArray = data.map((players) => players.name);
+    allPlayersArray = data;
+    playerOTD = getPlayerOTD(data);
+    loadData(fetchArray, playersListElement);
+  } catch (err) {
+    alert("Service is still waking up. Please refresh in a few seconds.");
+  }
 };
 
 
