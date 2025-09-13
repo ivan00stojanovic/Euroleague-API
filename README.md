@@ -2,12 +2,12 @@
 
 Eurole is a Wordle-esque full stack web application that challenges the user to guess the secret Euroleague player, while helping him along  the way.
 It is also a CRUD API that is made by me and is following an MVC architectural design pattern, neatly organised and easy to read. 
-It utilizes localStorage to keep track of the users statistics after each game, and if the user wishes to, he can reset it
+It utilizes localStorage to keep track of the users statistics after each game, and if the user wishes to, he can reset it.
 
 
 # Tech stack
 
-Tech used: HTML, CSS & JS. Node and Express for the backend, and MongoDB as the database
+Tech used: HTML, CSS & JS. Node and Express for the backend, and MongoDB as the database.
 
 # Optimizations
 
